@@ -41,8 +41,8 @@ export default {
     dark: darken(darkenRate, info)
   },
   text: {
-    primary: "#4A4A4A",
-    secondary: "#6E6E6E",
+    primary: "#D2D6EF",
+    secondary: darken(0.13, "#D2D6EF"),
     hint: "#B9B9B9"
   },
   background: {

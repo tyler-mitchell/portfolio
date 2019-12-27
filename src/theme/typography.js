@@ -1,6 +1,9 @@
 import palette from "./palette";
 
 export default {
+  // fontFamily: "'IBM Plex Sans', sans-serif",
+  fontFamily: "'Public Sans', sans-serif",
+
   h1: {
     color: palette.text.primary,
     fontWeight: 500,
@@ -73,6 +76,7 @@ export default {
     fontSize: "14px"
   },
   caption: {
+    fontFamily: "'IBM Plex Sans', sans-serif",
     color: palette.text.secondary,
     fontSize: "11px",
     letterSpacing: "0.33px",
