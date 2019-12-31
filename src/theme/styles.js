@@ -1,7 +1,18 @@
 import palette from "./palette";
-
+import { lighten, darken } from "polished";
 export default {
   gradient: {
+    widget: "linear-gradient(107.26deg, #494f74 0%, #434865 100%)",
+
+    heroCardInner: `linear-gradient(135deg, ${lighten(
+      0.05,
+      "#424869"
+    )} 24.41%, ${darken(0.05, "#4a5178")} 81.64%)`,
+
+    heroCardOuter: `linear-gradient(135deg, ${lighten(
+      0.27,
+      "#424869"
+    )} 24.41%, ${lighten(0.05, "#4a5178")} 81.64%)`,
     widgetEmbossed: "linear-gradient(135deg, #424869 24.41%, #4a5178 81.64%)",
     widget: x =>
       `radial-gradient(100% 197.75% at ${x}% 0%, #4D557A 5.73%, #2D324D 82.53%)`,

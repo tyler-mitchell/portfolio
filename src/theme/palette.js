@@ -1,5 +1,6 @@
 import { colors } from "@material-ui/core";
 import { lighten, darken } from "polished";
+const background = "#0c0d17";
 const white = "#FFFFFF";
 const black = "#000000";
 const primary = "#536DFE";
@@ -43,6 +44,7 @@ export default {
   text: {
     primary: "#D2D6EF",
     secondary: darken(0.13, "#D2D6EF"),
+    darkContrast: "black",
     hint: "#B9B9B9"
   },
   background: {

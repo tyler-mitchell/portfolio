@@ -1,6 +1,6 @@
 import React from "react";
 import UtsaLogo from "components/Icons/utsaLogo";
-import ProjectCard from "../components/ProjectCard";
+import LanguageCard from "../components/LanguageCard";
 import { Box, Divider } from "@material-ui/core";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/styles";
@@ -9,14 +9,13 @@ import { Grid } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { useTheme, withTheme } from "@material-ui/styles";
 import { FiberManualRecord as DotIcon2 } from "@material-ui/icons";
+import WidgetPaperBase from "common/WidgetPaperBase";
 
-const EducationPaper = styled.div`
-  background: linear-gradient(107.26deg, #494f74 0%, #434865 100%);
-  height: 100%;
-  width: 275px;
-  padding: 20px 20px 10px 0px;
-  position: relative;
-  border-radius: ${({ borderRadius }) => borderRadius};
+const EducationPaper = styled(WidgetPaperBase)`
+  /* min-width: 300px; */
+  /* width: 300px; */
+  width: 100%;
+  padding: 20px 20px 0px 0px;
 `;
 const TimelineContainer = styled(Divider)`
   opacity: 0.4;
@@ -36,7 +35,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const IconContainer = styled.div`
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 
   /* box-shadow: 8px 8px 22px rgba(54, 59, 87, 0.24),
     -6px -6px 24px rgba(85, 93, 131, 0.48),
@@ -92,13 +91,41 @@ const School = ({
         <Typography
           noWrap={true}
           style={{
-            position: "absolute",
-            right: 0
+            // position: "absolute",
+
+            overflow: "visible",
+            right: 0,
+            position: "relative"
           }}
           variant="caption"
           display="block"
         >
           {date}
+          {gpa && (
+            <Typography
+              variant="body2"
+              position="absolute"
+              align="right"
+              // display="block"
+              style={{
+                position: "absolute",
+                background: "#1d76ce",
+                fontWeight: 800,
+                color: theme.palette.text.primary,
+                borderRadius: "2px",
+                padding: "0px 3px",
+                // right: -89.3,
+
+                top: 20,
+                right: 0,
+                lineHeight: "12px",
+                fontSize: "10px"
+              }}
+            >
+              {gpa}
+              <span style={{ marginLeft: "1.5px" }}>GPA</span>
+            </Typography>
+          )}
         </Typography>
       </Box>
       <Typography
@@ -119,10 +146,10 @@ const School = ({
             style={{
               color: "white",
               position: "relative",
-              background: "linear-gradient(120deg, #23bfb0 0%, #30d6c6 100%)",
+              background: "linear-gradient(120deg, #1684ff 0%, #1383ff 100%)",
               // left: -28
               borderRadius: "27px 25px 25px 27px",
-              left: -24.5
+              left: -23.5
             }}
             color="primary"
             // variant="outlined"
@@ -143,34 +170,7 @@ const School = ({
               />
             }
             size="small"
-            label={
-              <>
-                {degree}{" "}
-                {gpa && (
-                  <Typography
-                    variant="body2"
-                    position="absolute"
-                    align="right"
-                    // display="block"
-                    style={{
-                      position: "absolute",
-                      background: "#23bfb0",
-                      fontWeight: 800,
-                      color: theme.palette.text.primary,
-                      borderRadius: "2px",
-                      padding: "0px 3px",
-                      right: -89.3,
-                      top: -33,
-                      lineHeight: "12px",
-                      fontSize: "10px"
-                    }}
-                  >
-                    {gpa}
-                    <span style={{ marginLeft: "1.5px" }}>GPA</span>
-                  </Typography>
-                )}
-              </>
-            }
+            label={degree}
           />
         </>
       )}
@@ -181,19 +181,28 @@ const School = ({
 const Education = () => {
   const theme = useTheme();
   return (
-    <div>
+    <>
       <Typography variant="h4" gutterBottom>
         Education
       </Typography>
-      <EducationPaper borderRadius={theme.styles.borderRadius.widget}>
+      <EducationPaper>
         <Grid container direction="row" wrap="nowrap" justify="stretch">
-          <Grid item>
+          <Grid
+            item
+            style={{
+              margin: "0px 15px",
+              borderRadius: "20px"
+            }}
+          >
             <Divider
               orientation="vertical"
               light
+              absolute
               style={{
                 margin: "0px 15px",
-                padding: "0px .2px",
+                height: "80%",
+                padding: "0px .2px 10px .2px",
+                top: 22,
                 opacity: 0.8,
                 borderRadius: "20px"
               }}
@@ -205,7 +214,6 @@ const Education = () => {
             direction="column"
             alignItems="stretch"
             spacing={4}
-            style={{ paddingBottom: "25px" }}
           >
             <Grid item>
               <School
@@ -229,18 +237,18 @@ const Education = () => {
               />
             </Grid>
             {/* <Grid item>
-              <School
-                date="2009 - 2013"
-                theme={theme}
-                title="Reagan"
-                subtitle="Ronald Reagan Highschool"
-                letterSpacing="-1px"
-              />
-            </Grid> */}
+                <School
+                  date="2009 - 2013"
+                  theme={theme}
+                  title="Reagan"
+                  subtitle="Ronald Reagan Highschool"
+                  letterSpacing="-1px"
+                />
+              </Grid> */}
           </Grid>
         </Grid>
       </EducationPaper>
-    </div>
+    </>
   );
 };
 

@@ -1,9 +1,10 @@
 export default {
   sizeSmall: {
-    fontSize: "10px",
-    fontWeight: 700,
-    padding: 0,
+    fontSize: "11px",
+    fontWeight: 600,
+    padding: "2px 0px 2px 0px",
+
     margin: 0,
-    height: "15px"
+    height: "20px"
   }
 };

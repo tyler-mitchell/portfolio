@@ -2,12 +2,18 @@ import React from "react";
 import { darken } from "polished";
 import { Typography, useTheme } from "@material-ui/core";
 import Divider from "components/Divider";
+import { Box } from "@material-ui/core";
 const Heading = () => {
   const theme = useTheme();
   return (
-    <>
+    <Box
+      display="flex"
+      flexDirection="column"
+      borderRadius="20px"
+      height="550px"
+    >
       <Typography variant="h1">Tyler Davis Mitchell</Typography>
-      <Typography
+      {/* <Typography
         variant="body1"
         style={{
           marginLeft: "6px",
@@ -19,9 +25,10 @@ const Heading = () => {
         }}
       >
         {"Senior Computer Science Student"}
-      </Typography>
-      <Divider width="26%" />
-    </>
+      </Typography> */}
+
+      {/* <Divider width="100%" /> */}
+    </Box>
   );
 };
 

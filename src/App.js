@@ -1,18 +1,24 @@
 import React from "react";
-import { ThemeProvider } from "@material-ui/styles";
+import { ThemeProvider, StylesProvider } from "@material-ui/styles";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { Container, Grid, Typography, Box } from "@material-ui/core";
 import theme from "./theme";
 import "./App.css";
 import styled from "styled-components";
-import Projects from "Widgets/Projects";
-import Heading from "Widgets/Heading";
+import Languages from "Widgets/Languages";
+import Hero from "Widgets/Hero";
 import Education from "Widgets/Education";
+import Projects from "Widgets/Projects";
 
 const StyledContainer = styled(Container)`
-  height: 90vh;
-  padding: 35px;
+  padding: 4vh 1vw 2vh 1vw;
+  /* min-height: 92vh; */
+  height: 100%;
   position: relative;
-  margin: 35px;
+  /* width: 80vw; */
+
+  /* box-sizing: content-box; */
+
   /* flex-direction: column; */
   border-radius: 8px;
   mix-blend-mode: normal;
@@ -33,27 +39,69 @@ function App() {
     <ThemeProvider theme={theme}>
       {console.log(`⭐: App -> theme`, theme)}
 
-      <StyledContainer maxWidth="lg">
-        <Grid
-          container
-          direction="column"
-          justify="space-between"
-          alignContent="space-between"
-          spacing={2}
-          style={{ height: "100%" }}
-        >
-          <Grid item>
-            <Heading />
-          </Grid>
-          <Grid item>
-            <Education />
-          </Grid>
-          <Box flexGrow={1} />
-          <Grid item>
-            <Projects />
-          </Grid>
-        </Grid>
-      </StyledContainer>
+      <StyledThemeProvider theme={theme}>
+        <div className="App-header">
+          <StyledContainer maxWidth="xl">
+            <Grid
+              container
+              direction="column"
+              alignItems="flex-start"
+              justify="space-between"
+              wrap="nowrap"
+              style={{
+                height: "100%",
+                // minHeight: "80vh",
+                width: "100%",
+                position: "relative"
+              }}
+            >
+              <Grid
+                container
+                item
+                wrap="nowrap"
+                // justify="space-between"
+                // alignItems="space-between"
+                spacing={3}
+                xs={12}
+                style={{ width: "100%" }}
+              >
+                <Grid
+                  item
+                  container
+                  wrap="nowrap"
+                  xs={4}
+                  direction="column"
+                  // alignItems="stretch"
+                  // justify="center"
+                  // justify="stretch"
+                >
+                  <Grid item>
+                    <Education />
+                  </Grid>
+                </Grid>
+                <Grid item xs={4}>
+                  <Hero />
+                </Grid>
+                <Grid
+                  item
+                  container
+                  xs={7}
+                  wrap="nowrap"
+                  direction="column"
+                  alignItems="flex-start"
+                  // justify="stretch"
+                >
+                  <Projects />
+                </Grid>
+              </Grid>
+              {/* <Box flexGrow={1} /> */}
+              <Grid item wrap="nowrap">
+                <Languages />
+              </Grid>
+            </Grid>
+          </StyledContainer>
+        </div>
+      </StyledThemeProvider>
     </ThemeProvider>
   );
 }
