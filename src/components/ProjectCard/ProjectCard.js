@@ -1,11 +1,11 @@
+import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { Typography, Box } from "@material-ui/core";
 import styled from "styled-components";
 
 const ProjectCardPaper = styled.div`
   padding: 20px;
   box-sizing: border-box;
-  background: #3c415e;
+  background: #206dfe;
   /* background: radial-gradient(
     100% 197.75% at 0% 0%,
     #4d557a 5.73%,
@@ -24,7 +24,7 @@ const ProjectCard = ({ title, description, image }) => {
       <Typography variant="h3" gutterBottom style={{ color: "white" }}>
         {title}
       </Typography>
-      <Typography variant="body2" color="textPrimary">
+      <Typography variant="body2" style={{ color: "white" }}>
         {description}
       </Typography>
     </ProjectCardPaper>

@@ -1,5 +1,6 @@
 import { colors } from "@material-ui/core";
-import { lighten, darken } from "polished";
+import { darken, lighten } from "polished";
+
 const background = "#0c0d17";
 const white = "#FFFFFF";
 const black = "#000000";
@@ -18,39 +19,39 @@ export default {
     main: primary,
     light: lighten(lightenRate, primary),
 
-    dark: darken(darkenRate, primary)
+    dark: darken(darkenRate, primary),
   },
   secondary: {
     main: secondary,
     light: lighten(lightenRate, secondary),
     dark: darken(darkenRate, secondary),
-    contrastText: "#FFFFFF"
+    contrastText: "#FFFFFF",
   },
   warning: {
     main: warning,
     light: lighten(lightenRate, warning),
-    dark: darken(darkenRate, warning)
+    dark: darken(darkenRate, warning),
   },
   success: {
     main: success,
     light: lighten(lightenRate, success),
-    dark: darken(darkenRate, success)
+    dark: darken(darkenRate, success),
   },
   info: {
     main: info,
     light: lighten(lightenRate, info),
-    dark: darken(darkenRate, info)
+    dark: darken(darkenRate, info),
   },
   text: {
-    primary: "#D2D6EF",
-    secondary: darken(0.13, "#D2D6EF"),
+    primary: "#000000",
+    secondary: lighten(0.13, "#000000"),
     darkContrast: "black",
-    hint: "#B9B9B9"
+    hint: "#B9B9B9",
   },
   background: {
     default: "#F6F7FF",
-    light: "#F3F5FF"
+    light: "#F3F5FF",
   },
   icon: colors.blueGrey[600],
-  divider: colors.grey[200]
+  divider: colors.grey[200],
 };

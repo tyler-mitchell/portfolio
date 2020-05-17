@@ -1,21 +1,23 @@
-import React from "react";
-import UtsaLogo from "components/Icons/utsaLogo";
-import LanguageCard from "../components/LanguageCard";
 import { Box, Divider } from "@material-ui/core";
-import styled from "styled-components";
-import { makeStyles } from "@material-ui/styles";
 import { Chip } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
-import { useTheme, withTheme } from "@material-ui/styles";
 import { FiberManualRecord as DotIcon2 } from "@material-ui/icons";
+import { makeStyles } from "@material-ui/styles";
+import { useTheme, withTheme } from "@material-ui/styles";
+import React from "react";
+import styled from "styled-components";
+
 import WidgetPaperBase from "common/WidgetPaperBase";
+import UtsaLogo from "components/Icons/utsaLogo";
+
+import LanguageCard from "../components/LanguageCard";
 
 const EducationPaper = styled(WidgetPaperBase)`
   /* min-width: 300px; */
   /* width: 300px; */
   width: 100%;
-  padding: 20px 20px 0px 0px;
+  padding: 20px 20px 20px 0px;
 `;
 const TimelineContainer = styled(Divider)`
   opacity: 0.4;
@@ -26,12 +28,12 @@ const TimelineContainer = styled(Divider)`
   margin: 0px 10px;
 `;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
-      margin: theme.spacing(0.5)
-    }
-  }
+      margin: theme.spacing(0.5),
+    },
+  },
 }));
 
 const IconContainer = styled.div`
@@ -58,7 +60,7 @@ const School = ({
   letterSpacing,
 
   degree,
-  gpa
+  gpa,
 }) => {
   const classes = useStyles();
   return (
@@ -83,7 +85,7 @@ const School = ({
             maxWidth: 100,
             letterSpacing: letterSpacing,
             lineHeight: "20px",
-            fontSize: "20px"
+            fontSize: "20px",
           }}
         >
           {title}
@@ -95,7 +97,7 @@ const School = ({
 
             overflow: "visible",
             right: 0,
-            position: "relative"
+            position: "relative",
           }}
           variant="caption"
           display="block"
@@ -109,7 +111,7 @@ const School = ({
               // display="block"
               style={{
                 position: "absolute",
-                background: "#1d76ce",
+                background: "#ffffff",
                 fontWeight: 800,
                 color: theme.palette.text.primary,
                 borderRadius: "2px",
@@ -119,7 +121,7 @@ const School = ({
                 top: 20,
                 right: 0,
                 lineHeight: "12px",
-                fontSize: "10px"
+                fontSize: "10px",
               }}
             >
               {gpa}
@@ -135,7 +137,7 @@ const School = ({
           maxWidth: "160px",
           fontWeight: 300,
           fontSize: "14px",
-          lineHeight: "14px"
+          lineHeight: "14px",
         }}
       >
         {subtitle}
@@ -149,21 +151,20 @@ const School = ({
               background: "linear-gradient(120deg, #1684ff 0%, #1383ff 100%)",
               // left: -28
               borderRadius: "27px 25px 25px 27px",
-              left: -23.5
+              left: -23.5,
             }}
             color="primary"
             // variant="outlined"
             // classes={classes}
             icon={
               <DotIcon2
-                fontSize="small"
                 style={{
-                  fontSize: "8px",
-                  paddingRight: "4px",
+                  fontSize: "6px",
+                  paddingRight: "2px",
                   marginLeft: 0,
-                  color: "#4D557A",
-                  opacity: 0.3,
-                  position: "relative"
+                  color: "#ffffff",
+
+                  position: "relative",
                   // left: "-2.5px"
                 }}
                 // color="action"
@@ -182,29 +183,32 @@ const Education = () => {
   const theme = useTheme();
   return (
     <>
-      <Typography variant="h4" gutterBottom>
-        Education
-      </Typography>
       <EducationPaper>
+        <Typography
+          variant="h6"
+          style={{ marginLeft: "10px", marginBottom: "10px" }}
+          gutterBottom
+        >
+          Education
+        </Typography>
         <Grid container direction="row" wrap="nowrap" justify="stretch">
           <Grid
             item
             style={{
               margin: "0px 15px",
-              borderRadius: "20px"
+              borderRadius: "20px",
             }}
           >
             <Divider
               orientation="vertical"
-              light
               absolute
               style={{
-                margin: "0px 15px",
-                height: "80%",
+                margin: "10px 15px",
+                height: "70%",
                 padding: "0px .2px 10px .2px",
-                top: 22,
+                top: "18%",
                 opacity: 0.8,
-                borderRadius: "20px"
+                borderRadius: "20px",
               }}
             />
           </Grid>
@@ -220,7 +224,7 @@ const Education = () => {
                 theme={theme}
                 title="UTSA"
                 date="2017 - MAY 2020"
-                gpa="3.2"
+                gpa="3.23"
                 letterSpacing="-2px"
                 subtitle="The University of Texas at San Antonio"
                 degree={"Bachelor of Computer Science"}

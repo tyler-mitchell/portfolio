@@ -1,27 +1,28 @@
-import React from "react";
-import styled from "styled-components";
 import { Icon } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { Box, Typography } from "@material-ui/core";
-import MuiCard from "@material-ui/core/Card";
 import { Button as MuiButton } from "@material-ui/core";
-import { makeStyles, withStyles, useTheme } from "@material-ui/styles";
+import MuiCard from "@material-ui/core/Card";
+import { makeStyles, useTheme, withStyles } from "@material-ui/styles";
+import React from "react";
+import styled from "styled-components";
 
 const Button = styled.div`
-  height: 43px;
-  width: 43px;
+  height: 18px;
+  width: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
+  border-radius: 3px;
   filter: brightness(98%);
+  margin-right: 5px;
 
-  background: linear-gradient(135deg, #424869 24.41%, #4a5178 81.64%);
-  box-shadow: inset -2px -2px 4px rgba(83, 92, 136, 0.16),
-    inset 2px 2px 4px rgba(38, 49, 105, 0.16);
+  background: linear-gradient(135deg, #f0f0f0 24.41%, #e8e8e8 81.64%);
+  box-shadow: inset -2px -2px 4px rgba(191, 192, 197, 0.16),
+    inset 2px 2px 4px rgba(224, 225, 230, 0.16);
 `;
-const Card = withStyles(theme => ({
-  root: props => ({
+const Card = withStyles((theme) => ({
+  root: (props) => ({
     // boxShadow: theme.styles.boxShadow.widget,
     display: "flex",
 
@@ -30,7 +31,9 @@ const Card = withStyles(theme => ({
     zIndex: 0,
     // backgroundImage: theme.styles.gradient.widget(props.x),
 
-    background: "linear-gradient(107.26deg, #494F74 0%, #434865 100%)",
+    background: "white",
+    boxShadow:
+      "0 0 20px 10px rgba(50,66,81,.05), 0px 0px 2px 0px  rgba(0, 0, 0, 0.15)",
 
     maskImage: theme.styles.gradient.widget2(props.a, props.bg),
 
@@ -52,7 +55,7 @@ const Card = withStyles(theme => ({
       opacity: 0,
       width: "100%",
       zIndex: 1,
-      transition: "all 0.45s ease"
+      transition: "all 0.45s ease",
     },
     backdropFilter: "none",
     "&:hover": {
@@ -63,18 +66,17 @@ const Card = withStyles(theme => ({
       transform: "translateY(-20px)",
 
       "&:before": {
-        opacity: 1
-      }
+        opacity: 1,
+      },
     },
 
     willChange: "background-image",
     mixBlendMode: "luminosity",
-    borderRadius: theme.styles.borderRadius.widget,
-    height: "75px",
-    maxWidth: "275px",
-    minWidth: "160px",
-    width: "13vw"
-  })
+    borderRadius: "5px",
+    height: "35px",
+    // maxWidth: "275px",
+    // width: "203px",
+  }),
 }))(MuiCard);
 
 const LanguageCard = ({ language, icon, a, bg }) => {
@@ -82,23 +84,21 @@ const LanguageCard = ({ language, icon, a, bg }) => {
     <Card a={a} bg={bg}>
       <Box
         display="flex"
-        p="10px"
+        p="2px"
         position="relative"
         zIndex={2}
         color="#D2D6EF"
-        component={Grid}
-        container
         alignItems="center"
-        spacing={2}
+        spacing={1}
       >
-        <Grid item>
-          <Button>
-            <Icon style={{ fontSize: 17 }} class={icon} />
-          </Button>
-        </Grid>
-        <Grid item>
-          <Typography variant="h5">{language}</Typography>
-        </Grid>
+        <Button>
+          <Icon style={{ fontSize: 10, color: "#206dfe" }} class={icon} />
+        </Button>
+
+        <div>
+          {" "}
+          <Typography style={{ fontSize: 8 }}>{language}</Typography>
+        </div>
       </Box>
     </Card>
   );

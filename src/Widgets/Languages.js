@@ -1,15 +1,18 @@
-import React from "react";
-import LanguageCard from "components/LanguageCard";
 import { Typography } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
+import React from "react";
+
+import WidgetPaper from "common/WidgetPaperBase";
+import LanguageCard from "components/LanguageCard";
+
 const Languages = () => {
   return (
-    <>
-      <Typography variant="h4" gutterBottom>
+    <WidgetPaper>
+      <Typography variant="h6" color="textSecondary" gutterBottom>
         Languages
       </Typography>
       <Grid item container spacing={2}>
-        <Grid item>
+        <Grid item xs={4}>
           <LanguageCard
             icon="devicon-python-plain"
             language="Python"
@@ -17,7 +20,7 @@ const Languages = () => {
             bg="#434865"
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={4}>
           <LanguageCard
             icon="devicon-javascript-plain"
             language="Javascript"
@@ -25,7 +28,7 @@ const Languages = () => {
             bg="#434865"
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={4}>
           <LanguageCard
             icon="devicon-react-original colored"
             language="React"
@@ -33,7 +36,7 @@ const Languages = () => {
             bg="#434865"
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={4}>
           <LanguageCard
             icon="devicon-typescript-plain"
             language="Typescript"
@@ -41,7 +44,7 @@ const Languages = () => {
             bg="#434865"
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={4}>
           <LanguageCard
             icon="devicon-java-plain"
             language="Java"
@@ -49,7 +52,7 @@ const Languages = () => {
             bg="#434865"
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={4}>
           <LanguageCard
             icon="devicon-c-plain"
             language="C"
@@ -111,7 +114,7 @@ const Languages = () => {
           />
         </Grid>
       </Grid> */}
-    </>
+    </WidgetPaper>
   );
 };
 

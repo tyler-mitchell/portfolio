@@ -1,65 +1,59 @@
+import { Box, Grid, Typography } from "@material-ui/core";
 import React from "react";
-import ProjectCard from "components/ProjectCard";
-import { Typography, Box, Grid } from "@material-ui/core";
+
 import WidgetPaperBase from "common/WidgetPaperBase";
+import ProjectCard from "components/ProjectCard";
+
 const projects = [
   {
-    title: "ideasa",
-    description: "A web app for employees of The City of San Antonio"
-  },
-  {
-    title: "key hints",
-    description: "A beautiful keyboard shortcut notebook"
-  },
-  {
-    title: "memory vision",
+    title: "Idea Portal",
     description:
-      "An app that helps students and educators easily visualize how memory works in the C language by generating memory maps from a given C program"
+      "A web app for collaborative ideation where employees of The City of San Antonio suggest, collaborate, and vote on future projects.",
   },
   {
-    title: "memory vision",
+    title: "Amita Surgery",
     description:
-      "An app that helps students and educators easily visualize how memory works in the C language by generating memory maps from a given C program"
-  }
+      "A task management web application born in response to the COVID-19 epidemic that helps medical teams at UT Health Science Center track and reschedule surgeries.",
+  },
+  {
+    title: "Refinder",
+    description:
+      "A community-driven marketplace for reusable building materials.",
+  },
+  {
+    title: "Key Hints",
+    description:
+      "A beautiful notebook to organize and visualize keyboard shortcuts.",
+  },
 ];
 const Projects = () => {
   return (
-    <>
-      <Box display="flex">
-        <Typography
-          display="inline"
-          variant="h4"
-          gutterBottom
-          style={{ marginRight: "20px", cursor: "pointer" }}
-        >
-          Projects
-        </Typography>
-        <Typography
-          display="inline"
-          variant="h4"
-          gutterBottom
-          style={{ opacity: 0.3, cursor: "pointer" }}
-        >
-          Experience
-        </Typography>
-      </Box>
-
-      <WidgetPaperBase>
-        <Grid
-          container
-          justify="center"
-          alignItems="stretch"
-          spacing={2}
-          style={{ height: "100%" }}
-        >
-          {projects.map(props => (
-            <Grid item xs={6}>
-              <ProjectCard {...props} />
-            </Grid>
-          ))}
-        </Grid>
-      </WidgetPaperBase>
-    </>
+    <div>
+      <Grid item>
+        <WidgetPaperBase>
+          <Typography
+            variant="h6"
+            gutterBottom
+            style={{ marginRight: "20px", cursor: "pointer" }}
+          >
+            Projects
+          </Typography>
+          <Grid
+            container
+            // justify="center"
+            alignItems="stretch"
+            spacing={2}
+            style={{ height: "100%" }}
+          >
+            {projects.map((props) => (
+              <Grid item lg={6} md={12} xs={12}>
+                <ProjectCard {...props} />
+              </Grid>
+            ))}
+          </Grid>
+        </WidgetPaperBase>
+      </Grid>
+    </div>
   );
 };
 

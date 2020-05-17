@@ -1,17 +1,27 @@
-import React from "react";
-import { ThemeProvider, StylesProvider } from "@material-ui/styles";
+import { Box, Container, Grid, Typography } from "@material-ui/core";
+import { StylesProvider, ThemeProvider } from "@material-ui/styles";
+import lerp from "lerp";
+import React, { useEffect, useRef, useState } from "react";
+import { Canvas, useFrame, useThree } from "react-three-fiber";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import { Container, Grid, Typography, Box } from "@material-ui/core";
-import theme from "./theme";
-import "./App.css";
 import styled from "styled-components";
-import Languages from "Widgets/Languages";
-import Hero from "Widgets/Hero";
+
+import { Anchor, End, Home, Scroll } from "components/Background";
+import { api, useStore } from "components/store";
 import Education from "Widgets/Education";
+import Experience from "Widgets/Experience";
+import Hero from "Widgets/Hero";
+import Languages from "Widgets/Languages";
 import Projects from "Widgets/Projects";
+import Personal from "Widgets/Personal";
+
+import theme from "./theme";
+
+import "./App.css";
 
 const StyledContainer = styled(Container)`
-  padding: 4vh 1vw 2vh 1vw;
+  padding: 4vh 1vw 4vh 1vw;
+  margin-top: 4vh;
   /* min-height: 92vh; */
   height: 100%;
   position: relative;
@@ -22,87 +32,135 @@ const StyledContainer = styled(Container)`
   /* flex-direction: column; */
   border-radius: 8px;
   mix-blend-mode: normal;
-  /* display: flex; */
-  background: radial-gradient(
-    50.99% 50.14% at 50% 20%,
-    #444a6d 0%,
-    #3b405e 100%
-  );
-  box-shadow: 0px 0px 68px rgba(50, 54, 77, 0.5),
-    0px 0px 48px rgba(76, 83, 118, 0.4),
-    inset 1px 1px 1px rgba(83, 92, 136, 0.3),
-    inset -1px -1px 4px rgba(44, 48, 68, 0.2);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background: white;
+  box-shadow: 0px 0px 68px rgba(228, 229, 231, 0.5),
+    0px 0px 48px rgba(204, 204, 204, 0.4),
+    inset 1px 1px 1px rgba(212, 213, 216, 0.5),
+    inset -1px -1px 4px rgba(61, 61, 62, 0.2);
 `;
 
-function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      {console.log(`⭐: App -> theme`, theme)}
+function Spacer() {
+  const contentHeight = useStore((state) => state.contentHeight);
+  return <div style={{ height: contentHeight }} />;
+}
 
-      <StyledThemeProvider theme={theme}>
-        <div className="App-header">
-          <StyledContainer maxWidth="xl">
-            <Grid
-              container
-              direction="column"
-              alignItems="flex-start"
-              justify="space-between"
-              wrap="nowrap"
-              style={{
-                height: "100%",
-                // minHeight: "80vh",
-                width: "100%",
-                position: "relative"
-              }}
-            >
-              <Grid
-                container
-                item
-                wrap="nowrap"
-                // justify="space-between"
-                // alignItems="space-between"
-                spacing={3}
-                xs={12}
-                style={{ width: "100%" }}
+function App() {
+  const set = useStore((state) => state.set);
+
+  const [events, setEvents] = useState();
+  const scrollArea = useRef();
+  const onScroll = (e) => set({ top: e.target.scrollTop });
+  useEffect(() => void onScroll({ target: scrollArea.current }), []);
+
+  const dom = useRef();
+
+  return (
+    <>
+      <Canvas
+        colorManagement
+        noEvents
+        gl={{ antialias: true, alpha: false }}
+        camera={{ position: [0, 0, 4.5], fov: 50, near: 0.1, far: 100 }}
+        onCreated={({ gl }) => {
+          gl.setClearColor("white");
+          gl.toneMappingExposure = 2.5;
+          gl.toneMappingWhitePoint = 1;
+          setEvents(events);
+        }}
+      >
+        <Scroll dom={dom}>
+          <Anchor name="home">{/* <Home /> */}</Anchor>
+        </Scroll>
+      </Canvas>
+      <ThemeProvider theme={theme}>
+        {console.log(`⭐: App -> theme`, theme)}
+
+        <StyledThemeProvider theme={theme}>
+          <div
+            className="scrollArea"
+            ref={scrollArea}
+            onScroll={onScroll}
+            {...events}
+          >
+            <div style={{ position: "sticky", top: 0 }}>
+              <div
+                ref={dom}
+                // className="App-header"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  willChange: "transform",
+                }}
               >
-                <Grid
-                  item
-                  container
-                  wrap="nowrap"
-                  xs={4}
-                  direction="column"
-                  // alignItems="stretch"
-                  // justify="center"
-                  // justify="stretch"
-                >
-                  <Grid item>
-                    <Education />
+                {/* <div
+                  style={{ position: "absolute", left: "38%", top: "80%" }}
+                  id="r3f-home"
+                /> */}
+                <StyledContainer maxWidth="lg">
+                  {/* <Grid item>
+                  <Typography variant="h3">Tyler Mitchell</Typography>
+                </Grid> */}
+                  <Grid
+                    container
+                    // alignItems="space-between"
+                    // alignItems="stretch"
+                    spacing={2}
+                    justify="space-between"
+                    style={{ width: "100%" }}
+                  >
+                    <Grid
+                      item
+                      container
+                      md={4}
+                      direction="column"
+                      spacing={2}
+                      // alignItems="stretch"
+                      // justify="center"
+
+                      // justify="stretch"
+                    >
+                      <Grid item>
+                        <Personal />
+                      </Grid>
+                      <Grid item>
+                        <Education />
+                      </Grid>
+
+                      <Grid item container>
+                        <Languages />
+                      </Grid>
+                    </Grid>
+                    {/* <Grid
+                      item
+                      md={3}
+                      xs={12}
+                      // justify="center"
+                    >
+                      <Hero />
+                    </Grid> */}
+                    <Grid item container md={8} direction="column" spacing={2}>
+                      <Grid item>
+                        <Projects />
+                      </Grid>
+                      <Grid item>
+                        <Experience />
+                      </Grid>
+                    </Grid>
                   </Grid>
-                </Grid>
-                <Grid item xs={4}>
-                  <Hero />
-                </Grid>
-                <Grid
-                  item
-                  container
-                  xs={7}
-                  wrap="nowrap"
-                  direction="column"
-                  alignItems="flex-start"
-                  // justify="stretch"
-                >
-                  <Projects />
-                </Grid>
-              </Grid>
-              {/* <Box flexGrow={1} /> */}
-              <Grid item wrap="nowrap">
-                <Languages />
-              </Grid>
-            </Grid>
-          </StyledContainer>
-        </div>
-      </StyledThemeProvider>
-    </ThemeProvider>
+
+                  {/* <Box flexGrow={1} /> */}
+                </StyledContainer>
+              </div>
+            </div>
+          </div>
+        </StyledThemeProvider>
+      </ThemeProvider>
+    </>
   );
 }
 
