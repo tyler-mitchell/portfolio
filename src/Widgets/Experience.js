@@ -222,7 +222,7 @@ const Education = () => {
               <School
                 theme={theme}
                 title="UT Health Science Center"
-                date="APRIL 2020 - NOW"
+                date="April 2020 - Now"
                 gpa="Contract"
                 letterSpacing="-1px"
                 subtitle=""
@@ -232,19 +232,7 @@ const Education = () => {
             <Grid item>
               <School
                 theme={theme}
-                date="NOV 2019 - MAY 2020"
-                gpa="Internship"
-                title="City of San Antonio"
-                subtitle=""
-                letterSpacing="-1px"
-                degree={"Web Applications Developer"}
-              />
-            </Grid>
-
-            <Grid item>
-              <School
-                theme={theme}
-                date="2015 - 2017"
+                date="Jan 2020 - May 2020"
                 title="Senior Design Project"
                 subtitle=""
                 gpa={
@@ -257,6 +245,18 @@ const Education = () => {
                 degree={"Founder"}
               />
             </Grid>
+            <Grid item>
+              <School
+                theme={theme}
+                date="Nov 2019 - May 2020"
+                gpa="Internship"
+                title="City of San Antonio"
+                subtitle=""
+                letterSpacing="-1px"
+                degree={"Web Applications Developer"}
+              />
+            </Grid>
+
             {/* <Grid item>
                 <School
                   date="2009 - 2013"

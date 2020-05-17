@@ -5,7 +5,7 @@ import styled from "styled-components";
 const ProjectCardPaper = styled.div`
   padding: 20px;
   box-sizing: border-box;
-  background: #206dfe;
+  background: rgb(250, 248, 252);
   /* background: radial-gradient(
     100% 197.75% at 0% 0%,
     #4d557a 5.73%,
@@ -20,14 +20,16 @@ const ProjectCardPaper = styled.div`
 `;
 const ProjectCard = ({ title, description, image }) => {
   return (
-    <ProjectCardPaper>
-      <Typography variant="h3" gutterBottom style={{ color: "white" }}>
+    <div>
+      <ProjectCardPaper>
+        <div style={{ height: "140px" }} />
+      </ProjectCardPaper>
+      <div style={{ height: "5px" }} />
+      <Typography variant="h3" gutterBottom>
         {title}
       </Typography>
-      <Typography variant="body2" style={{ color: "white" }}>
-        {description}
-      </Typography>
-    </ProjectCardPaper>
+      <Typography variant="body2">{description}</Typography>
+    </div>
   );
 };
 

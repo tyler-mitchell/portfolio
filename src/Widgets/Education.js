@@ -184,13 +184,35 @@ const Education = () => {
   return (
     <>
       <EducationPaper>
-        <Typography
-          variant="h6"
-          style={{ marginLeft: "10px", marginBottom: "10px" }}
-          gutterBottom
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
         >
-          Education
-        </Typography>
+          <Typography
+            variant="h6"
+            style={{ marginLeft: "16px", marginBottom: "10px" }}
+            gutterBottom
+          >
+            Education
+          </Typography>
+          <Chip
+            label="New Graduate"
+            style={{
+              padding: "0px",
+              borderRadius: "3px",
+              backgroundColor: "#0df2c9",
+              color: "white",
+              // height: "15px",
+              fontSize: "12px",
+
+              lineHeight: 1,
+            }}
+            size="small"
+          />
+        </div>
         <Grid container direction="row" wrap="nowrap" justify="stretch">
           <Grid
             item
@@ -223,7 +245,7 @@ const Education = () => {
               <School
                 theme={theme}
                 title="UTSA"
-                date="2017 - MAY 2020"
+                date="2017 - May 2020"
                 gpa="3.23"
                 letterSpacing="-2px"
                 subtitle="The University of Texas at San Antonio"

@@ -27,6 +27,7 @@ const Card = withStyles((theme) => ({
     display: "flex",
 
     position: "relative",
+    padding: 0,
 
     zIndex: 0,
     // backgroundImage: theme.styles.gradient.widget(props.x),
@@ -58,19 +59,7 @@ const Card = withStyles((theme) => ({
       transition: "all 0.45s ease",
     },
     backdropFilter: "none",
-    "&:hover": {
-      maskImage: "none",
-      filter: theme.styles.boxShadow.widgetDS,
-      // backdropFilter: "blur(10px)",
-      zIndex: 1,
-      transform: "translateY(-20px)",
 
-      "&:before": {
-        opacity: 1,
-      },
-    },
-
-    willChange: "background-image",
     mixBlendMode: "luminosity",
     borderRadius: "5px",
     height: "35px",
@@ -84,7 +73,6 @@ const LanguageCard = ({ language, icon, a, bg }) => {
     <Card a={a} bg={bg}>
       <Box
         display="flex"
-        p="2px"
         position="relative"
         zIndex={2}
         color="#D2D6EF"
@@ -97,7 +85,7 @@ const LanguageCard = ({ language, icon, a, bg }) => {
 
         <div>
           {" "}
-          <Typography style={{ fontSize: 8 }}>{language}</Typography>
+          <Typography style={{ fontSize: 11 }}>{language}</Typography>
         </div>
       </Box>
     </Card>
