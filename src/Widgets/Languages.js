@@ -4,116 +4,117 @@ import React from "react";
 
 import WidgetPaper from "common/WidgetPaperBase";
 import LanguageCard from "components/LanguageCard";
+import { ReactComponent as PythonIcon } from "resources/python.svg";
+import { ReactComponent as CIcon } from "resources/c.svg";
+import { ReactComponent as JavascriptIcon } from "resources/javascript.svg";
+import { ReactComponent as ReactIcon } from "resources/react.svg";
+import { ReactComponent as TypescriptIcon } from "resources/typescript.svg";
+import { ReactComponent as JavaIcon } from "resources/java.svg";
+import { ReactComponent as C4DIcon } from "resources/c4d.svg";
+import { ReactComponent as GitIcon } from "resources/git.svg";
+import { ReactComponent as FigmaIcon } from "resources/figma.svg";
+import { ReactComponent as FramerIcon } from "resources/framer.svg";
+import { ReactComponent as DockerIcon } from "resources/docker.svg";
+import { ReactComponent as FirebaseIcon } from "resources/firebase.svg";
 
+const languages = [
+  {
+    language: "Javascript",
+    icon: JavascriptIcon,
+  },
+  {
+    language: "React",
+    icon: ReactIcon,
+  },
+  {
+    language: "Python",
+    icon: PythonIcon,
+  },
+  {
+    language: "Typescript",
+    icon: TypescriptIcon,
+  },
+  {
+    language: "Java",
+    icon: JavaIcon,
+  },
+  {
+    language: "C",
+    icon: CIcon,
+  },
+];
+const tools = [
+  {
+    language: "Git",
+    icon: GitIcon,
+  },
+  {
+    language: "Docker",
+    icon: DockerIcon,
+  },
+  {
+    language: "Firebase",
+    icon: FirebaseIcon,
+  },
+  {
+    language: "Figma",
+    icon: FigmaIcon,
+  },
+  {
+    language: "Framer",
+    icon: FramerIcon,
+  },
+  {
+    language: (
+      <>
+        Cinema <span style={{ fontSize: 10 }}>4D</span>
+      </>
+    ),
+    icon: C4DIcon,
+  },
+];
 const Languages = () => {
   return (
     <WidgetPaper>
       <Typography variant="h6" color="textSecondary" gutterBottom>
-        Languages
+        Technology
       </Typography>
-      <Grid item container spacing={2}>
-        <Grid item xs={4}>
-          <LanguageCard
-            icon="devicon-python-plain"
-            language="Python"
-            a={-90}
-            bg="#434865"
-          />
+      <Grid container spacing={2}>
+        <Grid item>
+          <Typography
+            variant="subtitle2"
+            color="textSecondary"
+            style={{ color: "rgba(0,0,0,0.6)" }}
+            gutterBottom
+          >
+            Languages
+          </Typography>
+          <Grid item container spacing={1} alignItems="center">
+            {languages.map(({ language, icon }) => (
+              <Grid item xs={4}>
+                <LanguageCard icon={icon} language={language} />
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
-        <Grid item xs={4}>
-          <LanguageCard
-            icon="devicon-javascript-plain"
-            language="Javascript"
-            a={106}
-            bg="#434865"
-          />
-        </Grid>
-        <Grid item xs={4}>
-          <LanguageCard
-            icon="devicon-react-original colored"
-            language="React"
-            a={-106}
-            bg="#434865"
-          />
-        </Grid>
-        <Grid item xs={4}>
-          <LanguageCard
-            icon="devicon-typescript-plain"
-            language="Typescript"
-            a={90}
-            bg="#434865"
-          />
-        </Grid>
-        <Grid item xs={4}>
-          <LanguageCard
-            icon="devicon-java-plain"
-            language="Java"
-            a={90}
-            bg="#434865"
-          />
-        </Grid>
-        <Grid item xs={4}>
-          <LanguageCard
-            icon="devicon-c-plain"
-            language="C"
-            a={90}
-            bg="#434865"
-          />
+        <Grid item>
+          <Typography
+            variant="subtitle2"
+            color="textSecondary"
+            style={{ color: "rgba(0,0,0,0.6)" }}
+            gutterBottom
+          >
+            Tools
+          </Typography>
+          <Grid item container spacing={1} alignItems="center">
+            {tools.map(({ language, icon }) => (
+              <Grid item xs={4}>
+                <LanguageCard icon={icon} language={language} />
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
       </Grid>
-      {/* <Typography variant="h4" style={{ marginTop: "15px" }} gutterBottom>
-        Tools
-      </Typography>
-      <Grid item container justify="center" spacing={2}>
-        <Grid item>
-          <ProjectCard
-            icon="devicon-git-plain"
-            language="Git"
-            a={-90}
-            bg="#434865"
-          />
-        </Grid>
-        <Grid item>
-          <ProjectCard
-            icon="devicon-google-plain"
-            language="Firebase"
-            a={106}
-            bg="#434865"
-          />
-        </Grid>
-        <Grid item>
-          <ProjectCard
-            icon="devicon-visualstudio-plain"
-            language="VisualStudio"
-            a={-106}
-            bg="#434865"
-          />
-        </Grid>
-        <Grid item>
-          <ProjectCard
-            icon="devicon-ubuntu-plain"
-            language="Ubuntu"
-            a={90}
-            bg="#434865"
-          />
-        </Grid>
-        <Grid item>
-          <ProjectCard
-            icon="devicon-gitlab-plain"
-            language="Gitlab"
-            a={90}
-            bg="#434865"
-          />
-        </Grid>
-        <Grid item>
-          <ProjectCard
-            icon="devicon-babel-plain"
-            language="Babel"
-            a={90}
-            bg="#434865"
-          />
-        </Grid>
-      </Grid> */}
     </WidgetPaper>
   );
 };

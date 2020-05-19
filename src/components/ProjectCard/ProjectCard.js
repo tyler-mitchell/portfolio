@@ -2,32 +2,88 @@ import { Box, Typography } from "@material-ui/core";
 import React from "react";
 import styled from "styled-components";
 
+const Language = ({ color, language }) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        marginRight: "10px",
+        marginTop: "6px",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: color,
+          marginRight: "3px",
+          borderRadius: "10px",
+          width: "10px",
+          height: "10px",
+          // border: "solid rgba(255,255,255,0.8) 2px",
+        }}
+      />
+
+      <span
+        style={{
+          fontSize: "12px",
+          fontWeight: 600,
+          lineHeight: 1,
+          color: "white",
+        }}
+      >
+        {language}
+      </span>
+    </div>
+  );
+};
+
 const ProjectCardPaper = styled.div`
-  padding: 20px;
+  padding: 15px;
+  padding-bottom: 23px;
   box-sizing: border-box;
-  background: rgb(250, 248, 252);
-  /* background: radial-gradient(
-    100% 197.75% at 0% 0%,
-    #4d557a 5.73%,
-    #4d557a 82.53%
-  ); */
-  /* width: 200px; */
+  background: #0df2c9;
   display: flex;
+  height: 160px;
   flex-direction: column;
-  height: 100%;
+  position: relative;
+  align-items: center;
   width: 100%;
   border-radius: 8px;
+  margin-bottom: 4.5px;
+  cursor: pointer;
 `;
-const ProjectCard = ({ title, description, image }) => {
+const ProjectCard = ({ title, description, image, languages }) => {
   return (
     <div>
       <ProjectCardPaper>
-        <div style={{ height: "140px" }} />
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            position: "absolute",
+
+            alignItems: "center",
+            bottom: "4px",
+            right: 0,
+            justifyContent: "flex-end",
+          }}
+        >
+          {languages.map(({ language, color }) => (
+            <Language language={language} color={color} />
+          ))}
+        </div>
+        <img
+          style={{
+            objectFit: "contain",
+            width: "100%",
+            maxHeight: "100%",
+          }}
+          src={image}
+        />
       </ProjectCardPaper>
-      <div style={{ height: "5px" }} />
-      <Typography variant="h3" gutterBottom>
-        {title}
-      </Typography>
+
+      <Typography variant="h4">{title}</Typography>
+
       <Typography variant="body2">{description}</Typography>
     </div>
   );

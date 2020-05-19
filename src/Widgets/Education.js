@@ -148,7 +148,7 @@ const School = ({
             style={{
               color: "white",
               position: "relative",
-              background: "linear-gradient(120deg, #1684ff 0%, #1383ff 100%)",
+              background: "linear-gradient(120deg, #0df2c9 0%, #0df2c9 100%)",
               // left: -28
               borderRadius: "27px 25px 25px 27px",
               left: -23.5,
@@ -203,7 +203,7 @@ const Education = () => {
             style={{
               padding: "0px",
               borderRadius: "3px",
-              backgroundColor: "#0df2c9",
+              backgroundColor: "#ff6b6b",
               color: "white",
               // height: "15px",
               fontSize: "12px",

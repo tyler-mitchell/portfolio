@@ -15,6 +15,7 @@ import Hero from "Widgets/Hero";
 import Languages from "Widgets/Languages";
 import Personal from "Widgets/Personal";
 import Projects from "Widgets/Projects";
+import Social from "Widgets/Social";
 
 import ProfilePicture from "./resources/image0.jpg";
 import theme from "./theme";
@@ -52,11 +53,11 @@ function Spacer() {
 }
 
 const Header = styled.div`
-  /* background-image: radial-gradient(
+  background-image: radial-gradient(
     circle 997px at 99.9% 96.8%,
-    rgba(132, 255, 199, 1) 0%,
-    rgba(137, 248, 255, 1) 90%
-  ); */
+    rgba(137, 248, 255, 1) 0%,
+    #0df2c9 90%
+  );
 
   /* height: 100%; */
 
@@ -67,11 +68,11 @@ const Header = styled.div`
   min-width: 300px;
   width: 100%;
   padding: 20px;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     89deg,
     rgba(253, 220, 155, 1) 26.2%,
     rgba(255, 215, 165, 1) 48.5%
-  );
+  ); */
 
   position: relative;
   border-radius: 8px;
@@ -166,18 +167,21 @@ function App() {
                               <Avatar
                                 aria-label=""
                                 style={{
-                                  marginRight: "10px",
-                                  border: "5px solid white",
-                                  width: "60px",
-                                  height: "60px",
+                                  marginRight: "-8px",
+                                  marginTop: "30px",
+                                  border: "4px solid rgba(255,255,255,0.9)",
+                                  width: "110px",
+                                  height: "110px",
+                                  boxShadow:
+                                    "rgba(0, 0, 0, 0.03) -2px 2px 8px 0px",
                                 }}
-                                src={require("./resources/image0.jpg")}
+                                src={require("./resources/me.png")}
                               />
                               <div
                                 style={{
                                   boxShadow:
                                     "rgba(0, 0, 0, 0.05) -2px 2px 23px 0px",
-                                  borderRadius: "38px 38px 38px 6px",
+                                  borderRadius: "38px 38px 38px 7px",
                                   marginBottom: "15px",
                                   opacity: 0.95,
                                   padding: "15px",
@@ -186,24 +190,24 @@ function App() {
                                 }}
                               >
                                 <Typography
-                                  variant="h2"
+                                  variant="h4"
                                   style={{
                                     // fontFamily: "Inter, sans-serif",
                                     fontWeight: 650,
-
-                                    color: "#F8DCA3",
+                                    letterSpacing: "-0.5px",
+                                    color: "#0df2c9",
                                   }}
                                 >
                                   Hello, i'm{" "}
                                   <Typography
                                     display="inline"
-                                    variant="h1"
+                                    variant="h3"
                                     style={{
-                                      marginLeft: "2px",
                                       // fontFamily: "Inter, sans-serif",
                                       fontWeight: 650,
                                       // color: "#0df2c9",
                                       color: "rgba(0,0,0,1)",
+                                      letterSpacing: "-0.5px",
                                     }}
                                   >
                                     Tyler Davis Mitchell
@@ -212,6 +216,16 @@ function App() {
                               </div>
                             </div>
                           </div>
+                        </div>
+                        <div
+                          style={{
+                            position: "absolute",
+                            bottom: 20,
+                            right: 20,
+                          }}
+                        >
+                          {" "}
+                          <Social />
                         </div>
                       </Header>
                     </Grid>

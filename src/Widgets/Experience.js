@@ -79,12 +79,13 @@ const School = ({
         <Typography
           color="textPrimary"
           // display="inline"
+          gutterBottom
           display="block"
           style={{
             fontWeight: 800,
             maxWidth: 600,
             letterSpacing: letterSpacing,
-            lineHeight: "20px",
+            lineHeight: 1,
             fontSize: "20px",
           }}
         >
@@ -133,13 +134,17 @@ const School = ({
         variant="body2"
         color="textPrimary"
         style={{
-          maxWidth: "400px",
+          maxWidth: "450px",
           fontWeight: 300,
           fontSize: "14px",
           lineHeight: "14px",
         }}
       >
-        {subtitle}
+        <ul style={{ margin: 0 }}>
+          {subtitle.map((item) => (
+            <li style={{ marginBottom: "4px", lineHeight: 1.2 }}>{item}</li>
+          ))}
+        </ul>
       </Typography>
       {degree && (
         <>
@@ -147,10 +152,13 @@ const School = ({
             style={{
               color: "white",
               position: "relative",
-              background: "linear-gradient(120deg, #1684ff 0%, #1383ff 100%)",
+              background: "linear-gradient(120deg,#0df2c9 0%, #0df2c9 100%)",
               // left: -28
               borderRadius: "27px 25px 25px 27px",
               left: -23.5,
+              // minWidth: "100px",
+              paddingRight: "20px",
+              justifyContent: "flex-start",
             }}
             color="primary"
             // variant="outlined"
@@ -185,12 +193,19 @@ const Education = () => {
       <EducationPaper>
         <Typography
           variant="h6"
-          style={{ marginLeft: "10px", marginBottom: "10px" }}
+          style={{ marginLeft: "14px", marginBottom: "10px" }}
           gutterBottom
         >
           Experience
         </Typography>
-        <Grid container direction="row" wrap="nowrap" justify="stretch">
+
+        <Grid
+          container
+          direction="row"
+          wrap="nowrap"
+          justify="stretch"
+          style={{ position: "relative" }}
+        >
           <Grid
             item
             style={{
@@ -202,10 +217,11 @@ const Education = () => {
               orientation="vertical"
               absolute
               style={{
-                margin: "10px 15px",
-                height: "70%",
+                margin: "2px 15px",
+                height: "100%",
                 padding: "0px .2px 10px .2px",
-                top: "18%",
+                // top: "18%",
+                top: 0,
                 opacity: 0.8,
                 borderRadius: "20px",
               }}
@@ -225,7 +241,16 @@ const Education = () => {
                 date="April 2020 - Now"
                 gpa="Contract"
                 letterSpacing="-1px"
-                subtitle=""
+                subtitle={[
+                  <>
+                    Building a medical scheduling and task management <br />
+                    web application
+                  </>,
+                  <>
+                    Application is actively being used by medical teams at
+                    <br /> UT Health and Science Center
+                  </>,
+                ]}
                 degree={"Lead Developer"}
               />
             </Grid>
@@ -234,7 +259,21 @@ const Education = () => {
                 theme={theme}
                 date="Jan 2020 - May 2020"
                 title="Senior Design Project"
-                subtitle=""
+                subtitle={[
+                  <>
+                    Created Refinder--a marketplace for reusable building
+                    materials and builder services
+                  </>,
+                  <>
+                    Placed 4th out of 23 teams in university's technology
+                    venture competition
+                  </>,
+                  <>Learned a lot about online marketplaces and finance</>,
+                  <>
+                    Formed close partnership with The City of San Antonio's
+                    Office of Historic Preservation
+                  </>,
+                ]}
                 gpa={
                   <div>
                     University <br />
@@ -248,12 +287,44 @@ const Education = () => {
             <Grid item>
               <School
                 theme={theme}
-                date="Nov 2019 - May 2020"
+                date="Nov 2019 - April 2020"
                 gpa="Internship"
-                title="City of San Antonio"
-                subtitle=""
+                title={"City of San Antonio"}
+                subtitle={[
+                  <>Built a collaborative ideation web application</>,
+                  <>
+                    Application to launch in pilot phase with 50 participants.{" "}
+                    <br />
+                    Upon success, it will launch to 13,000 city employees and
+                    then city-wide
+                  </>,
+                  <>
+                    Worked with The City of San Antonio's Office of Innovation /
+                    Information Technology Department and gained knowledge of
+                    local government functions & technologies
+                  </>,
+                  <>
+                    Gathered requirements and participated in various meetings
+                    with stakeholders
+                  </>,
+                ]}
                 letterSpacing="-1px"
                 degree={"Web Applications Developer"}
+              />
+            </Grid>
+            <Grid item>
+              <School
+                theme={theme}
+                date="Dec 2013 - Jan 2016"
+                gpa="Pre-Development"
+                title="Jamba Juice"
+                subtitle={[
+                  <>Made smoothies at fast rates</>,
+                  <>Had a lot of fun and loved our team</>,
+                  <>Responsible for leading and managing shifts</>,
+                ]}
+                letterSpacing="-1px"
+                degree={"Shift Lead"}
               />
             </Grid>
 
