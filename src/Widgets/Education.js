@@ -199,15 +199,21 @@ const Education = () => {
             Education
           </Typography>
           <Chip
-            label="New Graduate"
+            icon={
+              <DotIcon2
+                style={{ height: "9px", width: "9px", color: "white" }}
+              />
+            }
+            label={<span style={{ fontWeight: 505 }}>New Graduate</span>}
             style={{
               padding: "0px",
-              borderRadius: "3px",
-              backgroundColor: "#ff6b6b",
-              color: "white",
-              // height: "15px",
-              fontSize: "12px",
+              borderRadius: "4px",
+              backgroundColor: "#fe8077",
 
+              color: "white",
+              // height: "15px ",
+              fontSize: "10px",
+              fontWeight: 550,
               lineHeight: 1,
             }}
             size="small"

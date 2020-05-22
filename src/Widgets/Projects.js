@@ -7,7 +7,7 @@ import ProjectCard from "components/ProjectCard";
 const projects = [
   {
     title: "Idea Portal",
-    image: require("resources/ideasa.png"),
+    images: [require("resources/ideasa.png")],
     languages: [
       { language: "React", color: "#60D6FB" },
       { language: "Express", color: "#00CCB3" },
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: "Amita Surgery",
-    image: require("resources/amita.png"),
+    images: [require("resources/amita.png")],
     languages: [
       { language: "React", color: "#60D6FB" },
       { language: "Firebase", color: "#FFC107" },
@@ -29,7 +29,7 @@ const projects = [
   },
   {
     title: "Refinder",
-    image: require("resources/refinder.png"),
+    images: [require("resources/refinder.png")],
     languages: [
       { language: "React", color: "#28ceeb" },
       { language: "Firebase", color: "#FFC107" },
@@ -39,7 +39,7 @@ const projects = [
   },
   {
     title: "Key Hints",
-    image: require("resources/keyhints.png"),
+    images: [require("resources/keyhints.png")],
     languages: [
       { language: "React", color: "#60D6FB" },
       { language: "Firebase", color: "#FFC107" },

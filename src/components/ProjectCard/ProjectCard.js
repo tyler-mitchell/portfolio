@@ -1,6 +1,16 @@
-import { Box, Typography } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  CardActionArea,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Typography,
+} from "@material-ui/core";
 import React from "react";
 import styled from "styled-components";
+
+import ProjectDialog from "./ProjectDialog";
 
 const Language = ({ color, language }) => {
   return (
@@ -52,39 +62,87 @@ const ProjectCardPaper = styled.div`
   margin-bottom: 4.5px;
   cursor: pointer;
 `;
-const ProjectCard = ({ title, description, image, languages }) => {
+const ProjectCard = ({ title, description, images, languages, overview }) => {
+  const [open, setOpen] = React.useState(false);
   return (
     <div>
-      <ProjectCardPaper>
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            position: "absolute",
+      <CardActionArea
+        onClick={() => {
+          setOpen(true);
+        }}
+        style={{ padding: "10px", borderRadius: "10px" }}
+      >
+        <ProjectCardPaper>
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              position: "absolute",
 
-            alignItems: "center",
-            bottom: "4px",
-            right: 0,
-            justifyContent: "flex-end",
+              alignItems: "center",
+              bottom: "4px",
+              right: 0,
+              justifyContent: "flex-end",
+            }}
+          >
+            {languages.map(({ language, color }) => (
+              <Language language={language} color={color} />
+            ))}
+          </div>
+          <img
+            style={{
+              objectFit: "contain",
+              width: "100%",
+              maxHeight: "100%",
+            }}
+            src={images[0]}
+          />
+        </ProjectCardPaper>
+
+        <Typography variant="h4">{title}</Typography>
+
+        <Typography variant="body2">{description}</Typography>
+      </CardActionArea>
+      <ProjectDialog open={open} setOpen={setOpen}>
+        <DialogTitle>
+          <Typography
+            variant="h2"
+            style={{ fontWeight: 650, color: "#2C3038" }}
+            gutterBottom
+          >
+            {title}
+          </Typography>
+          <div style={{ width: "100%" }} />
+
+          <DialogContentText>
+            <Typography variant="body1" style={{ color: "rgba(0,0,0,0.3)" }}>
+              {description}
+            </Typography>
+          </DialogContentText>
+        </DialogTitle>
+        <DialogTitle
+          id=""
+          style={{
+            justifyContent: "center",
+            display: "flex",
+            flexDirection: "column",
+            backgroundImage:
+              "linear-gradient( 91.9deg,  rgba(75,207,250,1) 6.3%, rgba(25,159,249,1) 98.9% )",
           }}
         >
-          {languages.map(({ language, color }) => (
-            <Language language={language} color={color} />
-          ))}
-        </div>
-        <img
-          style={{
-            objectFit: "contain",
-            width: "100%",
-            maxHeight: "100%",
-          }}
-          src={image}
-        />
-      </ProjectCardPaper>
-
-      <Typography variant="h4">{title}</Typography>
-
-      <Typography variant="body2">{description}</Typography>
+          <img
+            style={{
+              objectFit: "contain",
+              width: "100%",
+              maxHeight: "100%",
+            }}
+            src={images[0]}
+          />
+        </DialogTitle>
+        <DialogContent
+          style={{ height: "70vh", width: "100%" }}
+        ></DialogContent>
+      </ProjectDialog>
     </div>
   );
 };

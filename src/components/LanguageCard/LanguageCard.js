@@ -13,6 +13,7 @@ const Button = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 3px;
+  background: white;
   padding: 2px;
 
   margin-right: 3px;
@@ -25,13 +26,10 @@ const Lang = styled.div`
   user-select: none;
   align-items: center;
   justify-content: flex-start;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 2px;
 
-  background: linear-gradient(135deg, white 24.41%, white 81.64%);
-  box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.2),
-    inset 1px 1px 0.5px rgba(212, 213, 216, 0.2),
-    inset -1px -1px 0.5px rgba(61, 61, 62, 0.1);
+  /* box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2); */
 `;
 
 const LanguageCard = ({ language, icon: Icon, a, bg }) => {
@@ -51,7 +49,11 @@ const LanguageCard = ({ language, icon: Icon, a, bg }) => {
         </Button>
         <div>
           {" "}
-          <Typography style={{ fontSize: 11 }}>{language}</Typography>
+          <Typography
+            style={{ fontSize: 11, color: "rgba(0,0,0,0.5)", fontWeight: 500 }}
+          >
+            {language}
+          </Typography>
         </div>
       </Lang>
     </Box>

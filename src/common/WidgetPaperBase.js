@@ -6,8 +6,9 @@ const WidgerPaperBase = styled.div`
 
   box-sizing: border-box;
   /* width: 275px; */
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0.5px 0px 0px,
-    rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.05) 0px 2px 4px 0px;
+  box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, 0.05),
+    inset rgba(0, 0, 0, 0.05) 1px 1px 2px,
+    inset -1px -1px rgba(255, 255, 255, 0.8);
   min-width: 300px;
   width: 100%;
   padding: 20px;

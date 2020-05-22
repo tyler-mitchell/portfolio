@@ -16,8 +16,6 @@ import Languages from "Widgets/Languages";
 import Personal from "Widgets/Personal";
 import Projects from "Widgets/Projects";
 import Social from "Widgets/Social";
-
-import ProfilePicture from "./resources/image0.jpg";
 import theme from "./theme";
 
 import "./App.css";
@@ -40,7 +38,7 @@ const StyledContainer = styled(Container)`
   width: 100%;
 
   justify-content: center;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(237, 242, 247, 0.9);
   box-shadow: 0px 0px 68px rgba(228, 229, 231, 0.5),
     0px 0px 48px rgba(204, 204, 204, 0.4),
     inset 1px 1px 1px rgba(212, 213, 216, 0.5),
@@ -160,7 +158,7 @@ function App() {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "flex-end",
+                                alignItems: "center",
                                 marginBottom: "10px",
                               }}
                             >
@@ -169,50 +167,87 @@ function App() {
                                 style={{
                                   marginRight: "-8px",
                                   marginTop: "30px",
-                                  border: "4px solid rgba(255,255,255,0.9)",
+                                  position: "relative",
+                                  border: "6px solid rgba(255,255,255,0.8)",
                                   width: "110px",
                                   height: "110px",
+                                  backgroundImage:
+                                    "radial-gradient( circle farthest-corner at 10% 20%,  rgba(239,246,249,1) 0%, rgba(206,239,253,1) 90% )",
+                                  overflow: "visible",
+                                  objectFit: "fit",
+
                                   boxShadow:
                                     "rgba(0, 0, 0, 0.03) -2px 2px 8px 0px",
                                 }}
-                                src={require("./resources/me.png")}
-                              />
-                              <div
-                                style={{
-                                  boxShadow:
-                                    "rgba(0, 0, 0, 0.05) -2px 2px 23px 0px",
-                                  borderRadius: "38px 38px 38px 7px",
-                                  marginBottom: "15px",
-                                  opacity: 0.95,
-                                  padding: "15px",
-                                  paddingRight: "30px",
-                                  background: "white",
-                                }}
                               >
-                                <Typography
-                                  variant="h4"
+                                {/* <div
                                   style={{
-                                    // fontFamily: "Inter, sans-serif",
-                                    fontWeight: 650,
-                                    letterSpacing: "-0.5px",
-                                    color: "#0df2c9",
+                                    border: "3px solid rgba(255,255,255,0.9)",
+                                    backgroundImage:
+                                      "radial-gradient( circle farthest-corner at 10% 20%,  rgba(239,246,249,1) 0%, rgba(206,239,253,1) 90% )",
+                                    borderTop: "transparent",
+                                    background: "white",
+                                    borderRight: "transparent",
+                                    borderLeft: "transparent",
+                                    borderRadius: "50px",
+                                    height: "100%",
+                                    bottom: "-3px",
+                                    width: "100%",
+                                    position: "absolute",
+                                  }}
+                                ></div> */}
+                                <img
+                                  height="100px"
+                                  style={{
+                                    borderRadius: "0px 0px 30px 30px",
+                                    filter:
+                                      "saturate(130%) drop-shadow(2px 1px 4px rgba(0,0,0,0.3)",
+                                  }}
+                                  src={require("./resources/tyler.svg")}
+                                ></img>
+                              </Avatar>
+                              <div style={{ marginLeft: "-5px" }}>
+                                <div
+                                  style={{
+                                    boxShadow:
+                                      "rgba(0, 0, 0, 0.05) -2px 2px 23px 0px",
+                                    borderRadius: "38px 38px 38px 7px",
+                                    marginBottom: "15px",
+                                    opacity: 0.95,
+                                    padding: "15px",
+                                    paddingRight: "30px",
+                                    background: "white",
                                   }}
                                 >
-                                  Hello, i'm{" "}
                                   <Typography
-                                    display="inline"
-                                    variant="h3"
+                                    variant="h4"
                                     style={{
                                       // fontFamily: "Inter, sans-serif",
                                       fontWeight: 650,
-                                      // color: "#0df2c9",
-                                      color: "rgba(0,0,0,1)",
                                       letterSpacing: "-0.5px",
+                                      color: "#0df2c9",
                                     }}
                                   >
-                                    Tyler Davis Mitchell
+                                    Hello, i'm{" "}
+                                    <Typography
+                                      display="inline"
+                                      variant="h3"
+                                      style={{
+                                        // fontFamily: "Inter, sans-serif",
+                                        fontWeight: 650,
+                                        // color: "#0df2c9",
+                                        color: "rgba(0,0,0,1)",
+                                        letterSpacing: "-0.5px",
+                                      }}
+                                    >
+                                      Tyler Davis Mitchell
+                                    </Typography>
                                   </Typography>
-                                </Typography>
+                                </div>
+                                <div style={{ marginLeft: "0" }}>
+                                  {" "}
+                                  <Social />
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -225,7 +260,7 @@ function App() {
                           }}
                         >
                           {" "}
-                          <Social />
+                          {/* <Social /> */}
                         </div>
                       </Header>
                     </Grid>
