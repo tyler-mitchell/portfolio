@@ -111,7 +111,7 @@ const ProjectCardPaper = styled.div`
 
 function getScreenShot(screenshot) {
   const Screenshot = screenshot;
-  return <Screenshot width="760px" height="400px" />;
+  return <Screenshot width="750px" height="390px" />;
 }
 const ProjectCard = ({
   title,
@@ -188,6 +188,10 @@ const ProjectCard = ({
           style={{
             height: "400px",
             position: "relative",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "20px 20px 20px 20px",
             backgroundImage:
               "linear-gradient( 91.9deg,  rgba(75,207,250,1) 6.3%, rgba(25,159,249,1) 98.9% )",
           }}
@@ -198,62 +202,15 @@ const ProjectCard = ({
               Visit
             </ColorButton>
           )}
-          {link && (
-            <ColorButton
-              style={{ position: "relative", bottom: 0, right: 0 }}
-              variant="contained"
-              href={link}
-              target="_blank"
-            >
-              Code
-            </ColorButton>
-          )}
-          {getScreenShot(images[selected])}
+          {/* Add "View Code" button */}
+          {/* {getScreenShot(images[selected])} */}
+          {images.map((Im, i) => {
+            if (i === selected) {
+              return <Im width="100%" height="100%" />;
+            }
+          })}
         </div>
         <DialogContent style={{ padding: 0 }}>
-          <div
-            id=""
-            style={{
-              justifyContent: "center",
-              display: "flex",
-              flexDirection: "column",
-              position: "relative",
-
-              padding: 0,
-              // width: "100%",
-              height: "400px",
-              width: "100%",
-              // boxSizing: "border-box",
-              alignItems: "center",
-              // padding: selected === 0 && "16px 24px",
-              // padding: "16px 24px",
-              // backgroundImage:
-              //   "linear-gradient( 91.9deg,  rgba(75,207,250,1) 6.3%, rgba(25,159,249,1) 98.9% )",
-            }}
-          >
-            {link && (
-              <ColorButton variant="contained" href={link} target="_blank">
-                Visit
-              </ColorButton>
-            )}
-
-            {/* <img
-              style={{
-                // objectFit: "cover",
-
-                position: "relative",
-                // width: "50vw",
-                cursor: "pointer",
-
-                width: "100%",
-                maxWidth: "100%",
-                maxHeight: "400px",
-
-                // margin: selected === 0 && "16px 24px",
-              }}
-              src={images[selected]}
-            /> */}
-          </div>
           <Grid container justify="center" style={{ marginTop: "10px" }}>
             {" "}
             {images.map((Image, index) => {

@@ -11,7 +11,7 @@ import { ReactComponent as RefinderThumbnail } from "resources/refinder.svg";
 const projects = [
   {
     title: "Idea Portal",
-    images: [RefinderThumbnail],
+    images: [IdeasaThumbnail],
     link: "https://ideasa-portal.firebaseapp.com/",
     languages: [
       { language: "React", color: "#60D6FB" },
@@ -34,7 +34,7 @@ const projects = [
   },
   {
     title: "Refinder",
-    images: [IdeasaThumbnail],
+    images: [RefinderThumbnail],
     link: "https://refinder.app/marketplace",
     languages: [
       { language: "React", color: "#28ceeb" },
