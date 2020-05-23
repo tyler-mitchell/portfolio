@@ -5,13 +5,59 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Grid,
   Typography,
+  withStyles,
 } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/CloseRounded";
 import React from "react";
 import styled from "styled-components";
 
 import ProjectDialog from "./ProjectDialog";
 
+const ThumbnailContainer = styled.div`
+  border-radius: 4px;
+  margin: 8px;
+  padding: 2px;
+
+  box-shadow: ${({ isSelected }) =>
+    isSelected ? "0 0 0px 3px #53ABF3" : "0 0 0px 0px #F3F3F4"};
+  cursor: pointer;
+  background-image: radial-gradient(
+    circle 827px at 47.3% 48%,
+    #f3f3f4 0%,
+    rgba(138, 192, 216, 1) 90%
+  );
+
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    box-shadow: ${({ isSelected }) =>
+      !isSelected && "0 0 0 4px rgba(0, 0, 0, 0.1)"};
+    background: ${({ isSelected }) => !isSelected && " rgba(0, 0, 0, 0.1)"};
+  }
+
+  &:after {
+  }
+`;
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+    fontWeight: 600,
+    textTransform: "none",
+    backgroundColor: "#25324E",
+    boxShadow: "rgba(25,159,249,0.1) -2px 2px 23px 0px",
+    color: "white",
+    "&:hover": {
+      boxShadow: "rgba(25,159,249,0.1) -1px 1px 23px 0px",
+      backgroundColor: "white",
+      color: "#489FF2",
+    },
+  },
+}))(Button);
 const Language = ({ color, language }) => {
   return (
     <div
@@ -62,8 +108,23 @@ const ProjectCardPaper = styled.div`
   margin-bottom: 4.5px;
   cursor: pointer;
 `;
-const ProjectCard = ({ title, description, images, languages, overview }) => {
+
+function getScreenShot(screenshot) {
+  const Screenshot = screenshot;
+  return <Screenshot width="760px" height="400px" />;
+}
+const ProjectCard = ({
+  title,
+  description,
+  images,
+  languages,
+  overview,
+  link,
+}) => {
+  console.log(`⭐: images`, images);
   const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState(0);
+
   return (
     <div>
       <CardActionArea
@@ -82,6 +143,7 @@ const ProjectCard = ({ title, description, images, languages, overview }) => {
               alignItems: "center",
               bottom: "4px",
               right: 0,
+
               justifyContent: "flex-end",
             }}
           >
@@ -89,21 +151,23 @@ const ProjectCard = ({ title, description, images, languages, overview }) => {
               <Language language={language} color={color} />
             ))}
           </div>
-          <img
+          {/* <img
             style={{
               objectFit: "contain",
               width: "100%",
-              maxHeight: "100%",
+
+              height: "100%",
             }}
             src={images[0]}
-          />
+          /> */}
+          {/* {getScreenShot(images[0])} */}
         </ProjectCardPaper>
 
         <Typography variant="h4">{title}</Typography>
 
         <Typography variant="body2">{description}</Typography>
       </CardActionArea>
-      <ProjectDialog open={open} setOpen={setOpen}>
+      <ProjectDialog open={open} setOpen={setOpen} maxWidth="lg">
         <DialogTitle>
           <Typography
             variant="h2"
@@ -112,7 +176,7 @@ const ProjectCard = ({ title, description, images, languages, overview }) => {
           >
             {title}
           </Typography>
-          <div style={{ width: "100%" }} />
+          {/* <div style={{ width: "60vw" }} /> */}
 
           <DialogContentText>
             <Typography variant="body1" style={{ color: "rgba(0,0,0,0.3)" }}>
@@ -120,28 +184,108 @@ const ProjectCard = ({ title, description, images, languages, overview }) => {
             </Typography>
           </DialogContentText>
         </DialogTitle>
-        <DialogTitle
-          id=""
+        <div
           style={{
-            justifyContent: "center",
-            display: "flex",
-            flexDirection: "column",
+            height: "400px",
+            position: "relative",
             backgroundImage:
               "linear-gradient( 91.9deg,  rgba(75,207,250,1) 6.3%, rgba(25,159,249,1) 98.9% )",
           }}
         >
-          <img
+          {" "}
+          {link && (
+            <ColorButton variant="contained" href={link} target="_blank">
+              Visit
+            </ColorButton>
+          )}
+          {link && (
+            <ColorButton
+              style={{ position: "relative", bottom: 0, right: 0 }}
+              variant="contained"
+              href={link}
+              target="_blank"
+            >
+              Code
+            </ColorButton>
+          )}
+          {getScreenShot(images[selected])}
+        </div>
+        <DialogContent style={{ padding: 0 }}>
+          <div
+            id=""
             style={{
-              objectFit: "contain",
+              justifyContent: "center",
+              display: "flex",
+              flexDirection: "column",
+              position: "relative",
+
+              padding: 0,
+              // width: "100%",
+              height: "400px",
               width: "100%",
-              maxHeight: "100%",
+              // boxSizing: "border-box",
+              alignItems: "center",
+              // padding: selected === 0 && "16px 24px",
+              // padding: "16px 24px",
+              // backgroundImage:
+              //   "linear-gradient( 91.9deg,  rgba(75,207,250,1) 6.3%, rgba(25,159,249,1) 98.9% )",
             }}
-            src={images[0]}
-          />
-        </DialogTitle>
-        <DialogContent
-          style={{ height: "70vh", width: "100%" }}
-        ></DialogContent>
+          >
+            {link && (
+              <ColorButton variant="contained" href={link} target="_blank">
+                Visit
+              </ColorButton>
+            )}
+
+            {/* <img
+              style={{
+                // objectFit: "cover",
+
+                position: "relative",
+                // width: "50vw",
+                cursor: "pointer",
+
+                width: "100%",
+                maxWidth: "100%",
+                maxHeight: "400px",
+
+                // margin: selected === 0 && "16px 24px",
+              }}
+              src={images[selected]}
+            /> */}
+          </div>
+          <Grid container justify="center" style={{ marginTop: "10px" }}>
+            {" "}
+            {images.map((Image, index) => {
+              return (
+                <Grid item key={index + title}>
+                  <ThumbnailContainer
+                    isSelected={selected === index}
+                    onClick={() => {
+                      setSelected(index);
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        // padding: "2px 6px",
+                        position: "relative",
+                        maxWidth: "120px",
+                        height: "100px",
+
+                        borderRadius: "2px",
+                      }}
+                    >
+                      <Image width="100%" height="auto" />
+                    </div>
+                  </ThumbnailContainer>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </DialogContent>
       </ProjectDialog>
     </div>
   );

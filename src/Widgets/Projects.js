@@ -3,11 +3,16 @@ import React from "react";
 
 import WidgetPaperBase from "common/WidgetPaperBase";
 import ProjectCard from "components/ProjectCard";
+import { ReactComponent as AmitaThumbnail } from "resources/amita.svg";
+import { ReactComponent as IdeasaThumbnail } from "resources/ideasa.svg";
+import { ReactComponent as KeyHintsThumbnail } from "resources/keyhints.svg";
+import { ReactComponent as RefinderThumbnail } from "resources/refinder.svg";
 
 const projects = [
   {
     title: "Idea Portal",
-    images: [require("resources/ideasa.png")],
+    images: [RefinderThumbnail],
+    link: "https://ideasa-portal.firebaseapp.com/",
     languages: [
       { language: "React", color: "#60D6FB" },
       { language: "Express", color: "#00CCB3" },
@@ -19,7 +24,7 @@ const projects = [
   },
   {
     title: "Amita Surgery",
-    images: [require("resources/amita.png")],
+    images: [AmitaThumbnail],
     languages: [
       { language: "React", color: "#60D6FB" },
       { language: "Firebase", color: "#FFC107" },
@@ -29,7 +34,8 @@ const projects = [
   },
   {
     title: "Refinder",
-    images: [require("resources/refinder.png")],
+    images: [IdeasaThumbnail],
+    link: "https://refinder.app/marketplace",
     languages: [
       { language: "React", color: "#28ceeb" },
       { language: "Firebase", color: "#FFC107" },
@@ -39,7 +45,8 @@ const projects = [
   },
   {
     title: "Key Hints",
-    images: [require("resources/keyhints.png")],
+    images: [KeyHintsThumbnail],
+    link: "https://key-hints.web.app/",
     languages: [
       { language: "React", color: "#60D6FB" },
       { language: "Firebase", color: "#FFC107" },
@@ -72,6 +79,7 @@ const Projects = () => {
                 <ProjectCard {...props} />
               </Grid>
             ))}
+            {console.log(`⭐: Projects -> map`, projects)}
           </Grid>
         </WidgetPaperBase>
       </Grid>

@@ -16,6 +16,7 @@ import Languages from "Widgets/Languages";
 import Personal from "Widgets/Personal";
 import Projects from "Widgets/Projects";
 import Social from "Widgets/Social";
+
 import theme from "./theme";
 
 import "./App.css";
