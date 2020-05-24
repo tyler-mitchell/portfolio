@@ -151,7 +151,7 @@ const ProjectCard = ({
               <Language language={language} color={color} />
             ))}
           </div>
-          {/* <img
+          <img
             style={{
               objectFit: "contain",
               width: "100%",
@@ -159,7 +159,7 @@ const ProjectCard = ({
               height: "100%",
             }}
             src={images[0]}
-          /> */}
+          />
           {/* {getScreenShot(images[0])} */}
         </ProjectCardPaper>
 
@@ -203,19 +203,28 @@ const ProjectCard = ({
             </ColorButton>
           )}
           {/* Add "View Code" button */}
+          {/* Add demo credentials */}
+          {/* Add download resume feature */}
           {/* {getScreenShot(images[selected])} */}
-          {images.map((Im, i) => {
-            if (i === selected) {
-              return <Im width="100%" height="100%" />;
-            }
-          })}
+          <img
+            style={{
+              objectFit: "contained",
+              width: "100%",
+
+              height: "100%",
+              borderRadius: "4px",
+              boxShadow:
+                "0 6.7px 5.3px rgba(0, 0, 0, 0.044), 0 22.3px 17.9px rgba(0, 0, 0, 0.066), 0 100px 80px rgba(0, 0, 0, 0.11)",
+            }}
+            src={images[selected]}
+          />
         </div>
         <DialogContent style={{ padding: 0 }}>
           <Grid container justify="center" style={{ marginTop: "10px" }}>
             {" "}
-            {images.map((Image, index) => {
+            {images.map((url, index) => {
               return (
-                <Grid item key={index + title}>
+                <Grid item>
                   <ThumbnailContainer
                     isSelected={selected === index}
                     onClick={() => {
@@ -230,12 +239,21 @@ const ProjectCard = ({
                         // padding: "2px 6px",
                         position: "relative",
                         maxWidth: "120px",
-                        height: "100px",
+                        height: "70px",
 
                         borderRadius: "2px",
                       }}
                     >
-                      <Image width="100%" height="auto" />
+                      <img
+                        style={{
+                          objectFit: "cover",
+                          width: "100px",
+                          maxWidth: "100px",
+                          height: "100%",
+                          maxHeight: "100%",
+                        }}
+                        src={url}
+                      />
                     </div>
                   </ThumbnailContainer>
                 </Grid>

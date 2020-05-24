@@ -3,15 +3,26 @@ import React from "react";
 
 import WidgetPaperBase from "common/WidgetPaperBase";
 import ProjectCard from "components/ProjectCard";
-import { ReactComponent as AmitaThumbnail } from "resources/amita.svg";
-import { ReactComponent as IdeasaThumbnail } from "resources/ideasa.svg";
-import { ReactComponent as KeyHintsThumbnail } from "resources/keyhints.svg";
-import { ReactComponent as RefinderThumbnail } from "resources/refinder.svg";
+
+// import { ReactComponent as AmitaThumbnail } from "resources/amita.svg";
+// import { ReactComponent as IdeasaThumbnail } from "resources/ideaportal.png";
+// import { ReactComponent as Ideasa2 } from "resources/ideasa2.svg";
+// import { ReactComponent as Ideasa3 } from "resources/ideasa3.png";
+// import { ReactComponent as Ideasa4 } from "resources/ideasa4.svg";
+// import { ReactComponent as KeyHintsThumbnail } from "resources/keyhints.svg";
+// import { ReactComponent as RefinderThumbnail } from "resources/refinder.svg";
 
 const projects = [
   {
     title: "Idea Portal",
-    images: [IdeasaThumbnail],
+    images: [
+      require("resources/ideasa/header.png"),
+      require("resources/ideasa/idea.png"),
+      require("resources/ideasa/new_idea.png"),
+      require("resources/ideasa/feed.png"),
+      require("resources/ideasa/pending.png"),
+      require("resources/ideasa/feedback.png"),
+    ],
     link: "https://ideasa-portal.firebaseapp.com/",
     languages: [
       { language: "React", color: "#60D6FB" },
@@ -24,7 +35,7 @@ const projects = [
   },
   {
     title: "Amita Surgery",
-    images: [AmitaThumbnail],
+    images: [require("resources/ideasa/new_idea.png")],
     languages: [
       { language: "React", color: "#60D6FB" },
       { language: "Firebase", color: "#FFC107" },
@@ -34,7 +45,7 @@ const projects = [
   },
   {
     title: "Refinder",
-    images: [RefinderThumbnail],
+    images: [require("resources/ideasa/new_idea.png")],
     link: "https://refinder.app/marketplace",
     languages: [
       { language: "React", color: "#28ceeb" },
@@ -45,7 +56,15 @@ const projects = [
   },
   {
     title: "Key Hints",
-    images: [KeyHintsThumbnail],
+    images: [
+      require("resources/keyhints/select_shortcut.png"),
+      require("resources/keyhints/create.png"),
+      require("resources/keyhints/new_shortcut.png"),
+      require("resources/keyhints/new_shortcut_label.png"),
+      require("resources/keyhints/new_shortcut_image.png"),
+      require("resources/keyhints/multi_layers.png"),
+      require("resources/keyhints/keymap_bash_ctrl.png"),
+    ],
     link: "https://key-hints.web.app/",
     languages: [
       { language: "React", color: "#60D6FB" },
