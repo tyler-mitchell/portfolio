@@ -238,8 +238,9 @@ const ProjectCard = ({
                         alignItems: "center",
                         // padding: "2px 6px",
                         position: "relative",
-                        maxWidth: "120px",
-                        height: "70px",
+                        maxWidth: "80px",
+                        width: "100%",
+                        height: "60px",
 
                         borderRadius: "2px",
                       }}
@@ -247,8 +248,9 @@ const ProjectCard = ({
                       <img
                         style={{
                           objectFit: "cover",
-                          width: "100px",
-                          maxWidth: "100px",
+                          borderRadius: "3px",
+                          minWidth: "50px",
+                          maxWidth: "100%",
                           height: "100%",
                           maxHeight: "100%",
                         }}

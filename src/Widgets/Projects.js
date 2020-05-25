@@ -35,7 +35,17 @@ const projects = [
   },
   {
     title: "Amita Surgery",
-    images: [require("resources/ideasa/new_idea.png")],
+    images: [
+      require("resources/amita/surgeries.png"),
+      require("resources/amita/surgery_view.png"),
+      require("resources/amita/surgery_files.png"),
+      require("resources/amita/create_surgery.png"),
+      require("resources/amita/surgeries_tbd.png"),
+      require("resources/amita/surgeries_cancelled.png"),
+      require("resources/amita/reports.png"),
+      require("resources/amita/login.png"),
+      require("resources/amita/outlook.png"),
+    ],
     languages: [
       { language: "React", color: "#60D6FB" },
       { language: "Firebase", color: "#FFC107" },
@@ -45,7 +55,16 @@ const projects = [
   },
   {
     title: "Refinder",
-    images: [require("resources/ideasa/new_idea.png")],
+    images: [
+      require("resources/refinder/dashboard.png"),
+      require("resources/refinder/product_view_buyer.png"),
+      require("resources/refinder/offer.png"),
+      require("resources/refinder/selling.png"),
+      require("resources/refinder/create_details.png"),
+      require("resources/refinder/create_upload.png"),
+      require("resources/refinder/create_location.png"),
+      require("resources/refinder/product_view_seller.png"),
+    ],
     link: "https://refinder.app/marketplace",
     languages: [
       { language: "React", color: "#28ceeb" },
