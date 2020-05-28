@@ -9,6 +9,7 @@ import styled from "styled-components";
 import WidgetPaper from "common/WidgetPaperBase";
 import { Anchor, End, Home, Scroll } from "components/Background";
 import { api, useStore } from "components/store";
+import Courses from "Widgets/Courses";
 import Education from "Widgets/Education";
 import Experience from "Widgets/Experience";
 import Hero from "Widgets/Hero";
@@ -39,7 +40,7 @@ const StyledContainer = styled(Container)`
   width: 100%;
 
   justify-content: center;
-  background: rgba(237, 242, 247, 0.9);
+  background: white;
   box-shadow: 0px 0px 68px rgba(228, 229, 231, 0.5),
     0px 0px 48px rgba(204, 204, 204, 0.4),
     inset 1px 1px 1px rgba(212, 213, 216, 0.5),
@@ -102,14 +103,12 @@ function App() {
         }}
       >
         <Scroll dom={dom}>
-          <Anchor name="home">
+          {/* <Anchor name="home">
             <Home />
-          </Anchor>
+          </Anchor> */}
         </Scroll>
       </Canvas>
       <ThemeProvider theme={theme}>
-        {console.log(`⭐: App -> theme`, theme)}
-
         <StyledThemeProvider theme={theme}>
           <div
             className="scrollArea"
@@ -293,6 +292,9 @@ function App() {
 
                         <Grid item container>
                           <Languages />
+                        </Grid>
+                        <Grid item container>
+                          <Courses />
                         </Grid>
                       </Grid>
                       {/* <Grid

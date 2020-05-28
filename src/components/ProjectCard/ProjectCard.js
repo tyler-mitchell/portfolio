@@ -139,7 +139,6 @@ const ProjectCard = ({
               width: "100%",
               display: "flex",
               position: "absolute",
-
               alignItems: "center",
               bottom: "4px",
               right: 0,
@@ -167,7 +166,7 @@ const ProjectCard = ({
 
         <Typography variant="body2">{description}</Typography>
       </CardActionArea>
-      <ProjectDialog open={open} setOpen={setOpen} maxWidth="lg">
+      <ProjectDialog open={open} setOpen={setOpen} maxWidth="md">
         <DialogTitle>
           <Typography
             variant="h2"
@@ -211,7 +210,7 @@ const ProjectCard = ({
               objectFit: "contained",
               width: "100%",
 
-              height: "100%",
+              maxHeight: "100%",
               borderRadius: "4px",
               boxShadow:
                 "0 6.7px 5.3px rgba(0, 0, 0, 0.044), 0 22.3px 17.9px rgba(0, 0, 0, 0.066), 0 100px 80px rgba(0, 0, 0, 0.11)",

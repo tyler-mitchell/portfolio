@@ -191,14 +191,20 @@ const Education = () => {
   return (
     <>
       <EducationPaper>
-        <Typography
-          variant="h6"
-          style={{ marginLeft: "14px", marginBottom: "10px" }}
-          gutterBottom
-        >
+        <Typography variant="h6" style={{ marginLeft: "14px" }} gutterBottom>
           Experience
         </Typography>
+        <Divider
+          light
+          style={{
+            marginLeft: "14px",
 
+            marginTop: "5px",
+            height: "4px",
+            borderRadius: "3px",
+            marginBottom: "20px",
+          }}
+        />
         <Grid
           container
           direction="row"

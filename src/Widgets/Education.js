@@ -199,11 +199,11 @@ const Education = () => {
             Education
           </Typography>
           <Chip
-            icon={
-              <DotIcon2
-                style={{ height: "9px", width: "9px", color: "white" }}
-              />
-            }
+            // icon={
+            //   <DotIcon2
+            //     style={{ height: "9px", width: "9px", color: "white" }}
+            //   />
+            // }
             label={<span style={{ fontWeight: 505 }}>New Graduate</span>}
             style={{
               padding: "0px",
@@ -252,7 +252,7 @@ const Education = () => {
                 theme={theme}
                 title="UTSA"
                 date="2017 - May 2020"
-                gpa="3.23"
+                // gpa="3.3"
                 letterSpacing="-2px"
                 subtitle="The University of Texas at San Antonio"
                 degree={"Bachelor of Computer Science"}

@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@material-ui/core";
+import { Box, Divider, Grid, Typography } from "@material-ui/core";
 import React from "react";
 
 import WidgetPaperBase from "common/WidgetPaperBase";
@@ -105,6 +105,17 @@ const Projects = () => {
           >
             Projects
           </Typography>
+          <Divider
+            light
+            style={{
+              marginLeft: "14px",
+
+              marginTop: "5px",
+
+              borderRadius: "3px",
+              marginBottom: "5px",
+            }}
+          />
           <Grid
             container
             // justify="center"

@@ -1,21 +1,21 @@
-import { Typography } from "@material-ui/core";
+import { Divider, Typography } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import React from "react";
 
 import WidgetPaper from "common/WidgetPaperBase";
 import LanguageCard from "components/LanguageCard";
-import { ReactComponent as PythonIcon } from "resources/python.svg";
 import { ReactComponent as CIcon } from "resources/c.svg";
+import { ReactComponent as C4DIcon } from "resources/c4d.svg";
+import { ReactComponent as DockerIcon } from "resources/docker.svg";
+import { ReactComponent as FigmaIcon } from "resources/figma.svg";
+import { ReactComponent as FirebaseIcon } from "resources/firebase.svg";
+import { ReactComponent as FramerIcon } from "resources/framer.svg";
+import { ReactComponent as GitIcon } from "resources/git.svg";
+import { ReactComponent as JavaIcon } from "resources/java.svg";
 import { ReactComponent as JavascriptIcon } from "resources/javascript.svg";
+import { ReactComponent as PythonIcon } from "resources/python.svg";
 import { ReactComponent as ReactIcon } from "resources/react.svg";
 import { ReactComponent as TypescriptIcon } from "resources/typescript.svg";
-import { ReactComponent as JavaIcon } from "resources/java.svg";
-import { ReactComponent as C4DIcon } from "resources/c4d.svg";
-import { ReactComponent as GitIcon } from "resources/git.svg";
-import { ReactComponent as FigmaIcon } from "resources/figma.svg";
-import { ReactComponent as FramerIcon } from "resources/framer.svg";
-import { ReactComponent as DockerIcon } from "resources/docker.svg";
-import { ReactComponent as FirebaseIcon } from "resources/firebase.svg";
 
 const languages = [
   {
@@ -79,12 +79,20 @@ const Languages = () => {
       <Typography variant="h6" color="textSecondary" gutterBottom>
         Technology
       </Typography>
+      <Divider
+        style={{
+          background: "rgba(0,0,0,0.05)",
+          marginTop: "5px",
+          borderRadius: "3px",
+          marginBottom: "10px",
+        }}
+      />
       <Grid container spacing={2}>
         <Grid item>
           <Typography
             variant="subtitle2"
             color="textSecondary"
-            style={{ color: "rgba(0,0,0,0.6)" }}
+            style={{ color: "rgba(0,0,0,1)" }}
             gutterBottom
           >
             Languages
@@ -101,7 +109,7 @@ const Languages = () => {
           <Typography
             variant="subtitle2"
             color="textSecondary"
-            style={{ color: "rgba(0,0,0,0.6)" }}
+            style={{ color: "rgba(0,0,0,1)" }}
             gutterBottom
           >
             Tools
