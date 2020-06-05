@@ -1,4 +1,11 @@
-import { Avatar, Box, Container, Grid, Typography } from "@material-ui/core";
+import {
+  Avatar,
+  Box,
+  Container,
+  Grid,
+  Hidden,
+  Typography,
+} from "@material-ui/core";
 import { StylesProvider, ThemeProvider } from "@material-ui/styles";
 import lerp from "lerp";
 import React, { useEffect, useRef, useState } from "react";
@@ -152,35 +159,36 @@ function App() {
                             display: "flex",
                             alignItems: "center",
                             height: "100%",
+                            width: "100%",
+                            justifyContent: "space-between",
                           }}
                         >
-                          <div>
-                            <div
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              marginBottom: "10px",
+                            }}
+                          >
+                            <Avatar
+                              aria-label=""
                               style={{
-                                display: "flex",
-                                alignItems: "center",
-                                marginBottom: "10px",
+                                marginRight: "-8px",
+                                marginTop: "30px",
+                                position: "relative",
+                                border: "6px solid rgba(255,255,255,0.8)",
+                                width: "110px",
+                                height: "110px",
+                                backgroundImage:
+                                  "radial-gradient( circle farthest-corner at 10% 20%,  rgba(239,246,249,1) 0%, rgba(206,239,253,1) 90% )",
+                                overflow: "visible",
+                                objectFit: "fit",
+
+                                boxShadow:
+                                  "rgba(0, 0, 0, 0.03) -2px 2px 8px 0px",
                               }}
                             >
-                              <Avatar
-                                aria-label=""
-                                style={{
-                                  marginRight: "-8px",
-                                  marginTop: "30px",
-                                  position: "relative",
-                                  border: "6px solid rgba(255,255,255,0.8)",
-                                  width: "110px",
-                                  height: "110px",
-                                  backgroundImage:
-                                    "radial-gradient( circle farthest-corner at 10% 20%,  rgba(239,246,249,1) 0%, rgba(206,239,253,1) 90% )",
-                                  overflow: "visible",
-                                  objectFit: "fit",
-
-                                  boxShadow:
-                                    "rgba(0, 0, 0, 0.03) -2px 2px 8px 0px",
-                                }}
-                              >
-                                {/* <div
+                              {/* <div
                                   style={{
                                     border: "3px solid rgba(255,255,255,0.9)",
                                     backgroundImage:
@@ -196,61 +204,93 @@ function App() {
                                     position: "absolute",
                                   }}
                                 ></div> */}
-                                <img
-                                  height="100px"
+                              <img
+                                height="100px"
+                                style={{
+                                  borderRadius: "0px 0px 30px 30px",
+                                  filter:
+                                    "saturate(110%) drop-shadow(2px 1px 4px rgba(0,0,0,0.3)",
+                                }}
+                                src={require("./resources/tyler.svg")}
+                              ></img>
+                            </Avatar>
+                            <div style={{ marginLeft: "-5px" }}>
+                              <div
+                                style={{
+                                  boxShadow:
+                                    "rgba(0, 0, 0, 0.05) -2px 2px 23px 0px",
+                                  borderRadius: "38px 38px 38px 7px",
+                                  marginBottom: "15px",
+                                  opacity: 0.95,
+                                  padding: "15px",
+                                  paddingRight: "30px",
+                                  background: "white",
+                                }}
+                              >
+                                <Typography
+                                  variant="h4"
                                   style={{
-                                    borderRadius: "0px 0px 30px 30px",
-                                    filter:
-                                      "saturate(130%) drop-shadow(2px 1px 4px rgba(0,0,0,0.3)",
-                                  }}
-                                  src={require("./resources/tyler.svg")}
-                                ></img>
-                              </Avatar>
-                              <div style={{ marginLeft: "-5px" }}>
-                                <div
-                                  style={{
-                                    boxShadow:
-                                      "rgba(0, 0, 0, 0.05) -2px 2px 23px 0px",
-                                    borderRadius: "38px 38px 38px 7px",
-                                    marginBottom: "15px",
-                                    opacity: 0.95,
-                                    padding: "15px",
-                                    paddingRight: "30px",
-                                    background: "white",
+                                    // fontFamily: "Inter, sans-serif",
+                                    fontWeight: 650,
+                                    letterSpacing: "-0.5px",
+                                    color: "#0df2c9",
                                   }}
                                 >
+                                  Hello, i'm{" "}
                                   <Typography
-                                    variant="h4"
+                                    display="inline"
+                                    variant="h3"
                                     style={{
                                       // fontFamily: "Inter, sans-serif",
                                       fontWeight: 650,
+                                      // color: "#0df2c9",
+                                      color: "rgba(0,0,0,1)",
                                       letterSpacing: "-0.5px",
-                                      color: "#0df2c9",
                                     }}
                                   >
-                                    Hello, i'm{" "}
-                                    <Typography
-                                      display="inline"
-                                      variant="h3"
-                                      style={{
-                                        // fontFamily: "Inter, sans-serif",
-                                        fontWeight: 650,
-                                        // color: "#0df2c9",
-                                        color: "rgba(0,0,0,1)",
-                                        letterSpacing: "-0.5px",
-                                      }}
-                                    >
-                                      Tyler Davis Mitchell
-                                    </Typography>
+                                    Tyler Davis Mitchell
                                   </Typography>
-                                </div>
-                                <div style={{ marginLeft: "0" }}>
-                                  {" "}
-                                  <Social />
-                                </div>
+                                </Typography>
+                              </div>
+                              <div style={{ marginLeft: "0" }}>
+                                {" "}
+                                <Social />
                               </div>
                             </div>
                           </div>
+
+                          <Hidden smDown>
+                            <div
+                              style={{
+                                display: "flex",
+                                maxWidth: "50%",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Typography
+                                display="block"
+                                variant="h3"
+                                // align="justify"
+                                style={{
+                                  width: "85%",
+                                  filter:
+                                    "drop-shadow(0px 0px 3px rgba(109, 238, 201, 0.52))",
+                                  // opacity: 0.95,
+                                  // fontFamily: "Inter, sans-serif",
+                                  fontWeight: 650,
+                                  // lineHeight: 0.8,
+                                  // color: "#0df2c9",
+                                  color: "rgba(255,255,255,1)",
+                                  letterSpacing: "-0.5px",
+                                }}
+                              >
+                                A full stack developer with a passion for
+                                crafting beautiful digital experiences and
+                                solutions.
+                              </Typography>
+                            </div>
+                          </Hidden>
                         </div>
                         <div
                           style={{
