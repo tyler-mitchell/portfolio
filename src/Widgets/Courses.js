@@ -42,7 +42,10 @@ const Courses = () => {
       <Grid container direction="column" spacing={2}>
         {courses.map(({ title }) => (
           <Grid item>
-            <Typography variant="subtitle2" color="textSecondary">
+            <Typography
+              variant="subtitle2"
+              style={{ color: "rgba(0,0,0,0.5)" }}
+            >
               {title}
             </Typography>
           </Grid>

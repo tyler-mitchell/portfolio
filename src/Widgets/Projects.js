@@ -24,12 +24,11 @@ const projects = [
       require("resources/ideasa/feedback.png"),
     ],
     link: "https://ideasa-portal.firebaseapp.com/",
+
     languages: [
       { language: "React", color: "#60D6FB" },
-      { language: "Express", color: "#00CCB3" },
-      { language: "MySQL", color: "#D54B3D" },
+      { language: "Firebase", color: "#FFC107" },
     ],
-
     description:
       "A web app for collaborative ideation where employees of The City of San Antonio suggest, collaborate, and vote on future projects.",
   },
@@ -48,8 +47,10 @@ const projects = [
     ],
     languages: [
       { language: "React", color: "#60D6FB" },
-      { language: "Firebase", color: "#FFC107" },
+      { language: "Express", color: "#00CCB3" },
+      { language: "MySQL", color: "#D54B3D" },
     ],
+
     description:
       "A task management web application born in response to the COVID-19 epidemic that helps medical teams at UT Health Science Center track and reschedule surgeries.",
   },

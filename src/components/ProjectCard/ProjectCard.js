@@ -19,7 +19,7 @@ const ThumbnailContainer = styled.div`
   border-radius: 4px;
   margin: 8px;
   padding: 2px;
-
+  border: 2px solid white;
   box-shadow: ${({ isSelected }) =>
     isSelected ? "0 0 0px 3px #53ABF3" : "0 0 0px 0px #F3F3F4"};
   cursor: pointer;
@@ -93,10 +93,26 @@ const Language = ({ color, language }) => {
   );
 };
 
+const ProjectActionArea = styled.div`
+  border: 1px solid white;
+  cursor: pointer;
+  transition: all 0.05s ease-in-out;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0);
+
+  &:hover {
+    color: rgba(113, 239, 203, 0.01);
+    background: rgba(40, 51, 77, 0.02);
+    /* transform: scale(1.02); */
+    /* box-shadow: 0px 5px 3px -2px rgba(0, 0, 0, 0.08); */
+    /* color: red; */
+  }
+`;
+
 const ProjectCardPaper = styled.div`
   padding: 15px;
   padding-bottom: 23px;
   box-sizing: border-box;
+  user-select: none;
   background: #0df2c9;
   display: flex;
   height: 160px;
@@ -104,11 +120,40 @@ const ProjectCardPaper = styled.div`
   position: relative;
   align-items: center;
   width: 100%;
+  overflow: hidden;
   border-radius: 8px;
   margin-bottom: 4.5px;
+
   cursor: pointer;
+  /* transition: all 0.2s; */
+  ${ProjectActionArea}:hover & {
+    color: rgba(113, 239, 203, 0.01);
+    /* border-color: #28334c; */
+    /* transform: scale(1.05); */
+    /* box-shadow: 0px 5px 8px -2px rgba(0, 0, 0, 0.08); */
+    /* color: red; */
+  }
+`;
+const ProjectThumbnail = styled.img`
+  transition: all 0.3s linear;
+  /* box-shadow: 0px 3px 8px rgba(0, 0, 0, 0); */
+  /* transform: scale(1); */
+  border-radius: 5px;
+
+  ${ProjectActionArea}:hover & {
+    /* transform: scale(1.05); */
+    /* box-shadow: 0px 5px 8px -2px rgba(0, 0, 0, 0.08); */
+    /* color: red; */
+  }
 `;
 
+const ProjectText = styled.div`
+  transition: all 0.1s ease;
+
+  ${ProjectActionArea}:hover & {
+    /* color: #6fefcb; */
+  }
+`;
 function getScreenShot(screenshot) {
   const Screenshot = screenshot;
   return <Screenshot width="750px" height="390px" />;
@@ -127,7 +172,7 @@ const ProjectCard = ({
 
   return (
     <div>
-      <CardActionArea
+      <ProjectActionArea
         onClick={() => {
           setOpen(true);
         }}
@@ -150,22 +195,39 @@ const ProjectCard = ({
               <Language language={language} color={color} />
             ))}
           </div>
-          <img
+          <div
             style={{
-              objectFit: "contain",
-              width: "100%",
-
-              height: "100%",
+              borderRadius: "3px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              boxShadow:
+                "0 6.7px 5.3px rgba(0, 0, 0, 0.044), 0 22.3px 17.9px rgba(0, 0, 0, 0.066), 0 100px 80px rgba(0, 0, 0, 0.11)",
             }}
-            src={images[0]}
-          />
+          >
+            <ProjectThumbnail
+              style={{
+                objectFit: "contain",
+                width: "100%",
+
+                borderRadius: "3px",
+
+                height: "100%",
+              }}
+              src={images[0]}
+            />
+          </div>
           {/* {getScreenShot(images[0])} */}
         </ProjectCardPaper>
 
-        <Typography variant="h4">{title}</Typography>
+        <ProjectText>
+          <Typography variant="h4">{title}</Typography>
 
-        <Typography variant="body2">{description}</Typography>
-      </CardActionArea>
+          <Typography variant="body1" color="textSecondary">
+            {description}
+          </Typography>
+        </ProjectText>
+      </ProjectActionArea>
       <ProjectDialog open={open} setOpen={setOpen} maxWidth="md">
         <DialogTitle>
           <Typography
@@ -191,6 +253,8 @@ const ProjectCard = ({
             justifyContent: "center",
             alignItems: "center",
             padding: "20px 20px 20px 20px",
+            overflow: "hidden",
+            cursor: "pointer",
             backgroundImage:
               "linear-gradient( 91.9deg,  rgba(75,207,250,1) 6.3%, rgba(25,159,249,1) 98.9% )",
           }}
@@ -206,6 +270,9 @@ const ProjectCard = ({
           {/* Add download resume feature */}
           {/* {getScreenShot(images[selected])} */}
           <img
+            onClick={() => {
+              setSelected((selected + 1) % images.length);
+            }}
             style={{
               objectFit: "contained",
               width: "100%",
@@ -219,7 +286,11 @@ const ProjectCard = ({
           />
         </div>
         <DialogContent style={{ padding: 0 }}>
-          <Grid container justify="center" style={{ marginTop: "10px" }}>
+          <Grid
+            container
+            justify="center"
+            style={{ marginTop: "10px", background: "#F9F9FB" }}
+          >
             {" "}
             {images.map((url, index) => {
               return (
@@ -238,7 +309,7 @@ const ProjectCard = ({
                         // padding: "2px 6px",
                         position: "relative",
                         maxWidth: "80px",
-                        width: "100%",
+                        width: "80px",
                         height: "60px",
 
                         borderRadius: "2px",

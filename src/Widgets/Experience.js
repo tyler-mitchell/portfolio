@@ -202,7 +202,7 @@ const Education = () => {
             marginTop: "5px",
             height: "4px",
             borderRadius: "3px",
-            marginBottom: "20px",
+            marginBottom: "12px",
           }}
         />
         <Grid
@@ -243,7 +243,7 @@ const Education = () => {
             <Grid item>
               <School
                 theme={theme}
-                title="UT Health Science Center"
+                title="UT Health Science Center at San Antonio"
                 date="April 2020 - Now"
                 gpa="Contract"
                 letterSpacing="-1px"
@@ -256,6 +256,13 @@ const Education = () => {
                     Application is actively being used by medical teams at
                     <br /> UT Health and Science Center
                   </>,
+                  <a
+                    target="_blank"
+                    href="https://www.utsa.edu/today/2020/05/story/postpandemic-triage-software.html"
+                  >
+                    UTSA software to help patients receive faster <br />
+                    postpandemic care
+                  </a>,
                 ]}
                 degree={"Lead Developer"}
               />
@@ -267,8 +274,12 @@ const Education = () => {
                 title="Senior Design Project"
                 subtitle={[
                   <>
-                    Created Refinder--a marketplace for reusable building
-                    materials and builder services
+                    Created{" "}
+                    <a target="_blank" href="https://refinder.app">
+                      Refinder
+                    </a>
+                    &#8212;a marketplace for reusable building materials and
+                    builder services
                   </>,
                   <>
                     Placed 4th out of 23 teams in university's technology
@@ -316,21 +327,6 @@ const Education = () => {
                 ]}
                 letterSpacing="-1px"
                 degree={"Web Applications Developer"}
-              />
-            </Grid>
-            <Grid item>
-              <School
-                theme={theme}
-                date="Dec 2013 - Jan 2016"
-                gpa="Pre-Development"
-                title="Jamba Juice"
-                subtitle={[
-                  <>Made smoothies at fast rates</>,
-                  <>Had a lot of fun and loved our team</>,
-                  <>Responsible for leading and managing shifts</>,
-                ]}
-                letterSpacing="-1px"
-                degree={"Shift Lead"}
               />
             </Grid>
 
