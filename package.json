@@ -20,7 +20,7 @@
     "react-three-fiber": "^4.2.4",
     "save-dev": "0.0.1-security",
     "styled-components": "^4.4.1",
-    "three": "^0.112.1",
+    "three": "^0.137.0",
     "zustand": "^2.2.3"
   },
   "scripts": {
